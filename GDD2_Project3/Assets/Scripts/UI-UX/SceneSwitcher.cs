@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public string LevelSceneName;
 
     /**<summary>
      * switches to the scene whose name matches the given game.</summary>
