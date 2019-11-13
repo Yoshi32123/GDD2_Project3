@@ -38,5 +38,6 @@ public class Pathfinding : MonoBehaviour
         transform.position = position;
 
         transform.LookAt(target.transform.position);
+        transform.Rotate(0, 180, 0);
     }
 }
