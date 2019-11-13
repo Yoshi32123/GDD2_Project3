@@ -36,5 +36,7 @@ public class Pathfinding : MonoBehaviour
         velocity = direction * speed;
         position += velocity;
         transform.position = position;
+
+        transform.LookAt(target.transform.position);
     }
 }
