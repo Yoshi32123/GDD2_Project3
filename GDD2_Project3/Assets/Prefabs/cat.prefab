@@ -116,12 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9870b3045e5b6d4448f5ecf69472d2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  path: []
   minRangeToArrive: 1
   speed: 0.1
 --- !u!1 &877623399594756406
