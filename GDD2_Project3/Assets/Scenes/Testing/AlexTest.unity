@@ -4857,7 +4857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588834914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Script: {fileID: 11500000, guid: 487f28665a08a9c4ebff5baaa81837f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
@@ -4882,7 +4882,7 @@ MonoBehaviour:
   endReachedDistance: 0.1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 0
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &1588834919
 MonoBehaviour:
@@ -4893,25 +4893,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588834914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Script: {fileID: 11500000, guid: daa952be19549a44abd3626bca6c7448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
+  aiPathScript: {fileID: 1588834918}
+  aiDestinationSetterScript: {fileID: 1588834917}
+  playerGO: {fileID: 1588834914}
+  roomsAndTheirNodes: []
 --- !u!143 &1588834920
 CharacterController:
   m_ObjectHideFlags: 0
