@@ -333,7 +333,7 @@ namespace Pathfinding {
 
 			var currentPosition = simulatedPosition;
 
-			// Update which point we are moving towards
+            // Update which point we are moving towards
 			interpolator.MoveToCircleIntersection2D(currentPosition, pickNextWaypointDist, movementPlane);
 			var dir = movementPlane.ToPlane(steeringTarget - currentPosition);
 
