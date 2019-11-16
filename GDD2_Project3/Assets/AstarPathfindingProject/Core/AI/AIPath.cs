@@ -126,7 +126,7 @@ namespace Pathfinding {
 		/// Note: <see cref="reachedEndOfPath"/> will become true when the character is within <see cref="endReachedDistance"/> units from the destination
 		/// regardless of what this field is set to.
 		/// </summary>
-		public CloseToDestinationMode whenCloseToDestination = CloseToDestinationMode.Stop;
+		public CloseToDestinationMode whenCloseToDestination = CloseToDestinationMode.ContinueToExactDestination;
 
 		/// <summary>
 		/// Ensure that the character is always on the traversable surface of the navmesh.
@@ -166,7 +166,6 @@ namespace Pathfinding {
 
 		/// <summary>\copydoc Pathfinding::IAstarAI::Teleport</summary>
 		public override void Teleport (Vector3 newPosition, bool clearPath = true) {
-			if (clearPath) interpolator.SetPath(null);
 			reachedEndOfPath = false;
 			base.Teleport(newPosition, clearPath);
 		}
@@ -317,6 +316,12 @@ namespace Pathfinding {
 			}
 		}
 
+		protected override void ClearPath () {
+			CancelCurrentPathRequest();
+			interpolator.SetPath(null);
+			reachedEndOfPath = false;
+		}
+
 		/// <summary>Called during either Update or FixedUpdate depending on if rigidbodies are used for movement or not</summary>
 		protected override void MovementUpdateInternal (float deltaTime, out Vector3 nextPosition, out Quaternion nextRotation) {
 			float currentAcceleration = maxAcceleration;
@@ -333,7 +338,7 @@ namespace Pathfinding {
 
 			var currentPosition = simulatedPosition;
 
-            // Update which point we are moving towards
+			// Update which point we are moving towards
 			interpolator.MoveToCircleIntersection2D(currentPosition, pickNextWaypointDist, movementPlane);
 			var dir = movementPlane.ToPlane(steeringTarget - currentPosition);
 

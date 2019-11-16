@@ -25,6 +25,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
 
 
         [MenuItem("Mobile Input/Enable")]
+        [Obsolete]
         private static void Enable()
         {
             SetEnabled("MOBILE_INPUT", true, true);
@@ -87,7 +88,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 BuildTargetGroup.Android,
                 BuildTargetGroup.iOS
             };
-
+        [Obsolete]
         private static BuildTargetGroup[] mobileBuildTargetGroups = new BuildTargetGroup[]
             {
                 BuildTargetGroup.Android,
