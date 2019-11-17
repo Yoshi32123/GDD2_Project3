@@ -15,8 +15,8 @@ public class AIBehavior : MonoBehaviour
 
     Vector3 direction;
     Vector3 velocity;
-    private float searchTime = 15.0f;
-    private float waitTime = 2.0f;
+    private float searchTime = 0.0f;
+    private float waitTime = 0.0f;
     private float timer = 0.0f;
     private enum MovementState { Wandering, Chasing, Searching};
     private MovementState currentBehavior;
@@ -26,9 +26,9 @@ public class AIBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SeekPlayer();
+        ChasePlayer();
         //WanderAround();
-        SearchRoom();
+        //SearchRoom();
 
         //adds all rooms to room list
         listOfRooms = new List<GameObject>();
@@ -58,10 +58,25 @@ public class AIBehavior : MonoBehaviour
                 {
                     aiPathScript.isStopped = true;
 
-                    direction = (playerGO.transform.position - transform.position).normalized;
+                    direction = (playerGO.transform.position - transform.position);
                     direction.y = 0;
-                    velocity = direction * (aiPathScript.maxSpeed / 65f);
-                    transform.position += velocity;
+                    direction = direction.normalized;
+
+                    //error check
+                    if(direction != Vector3.zero)
+                    {
+                        transform.forward = Vector3.Slerp(direction, transform.forward, 0.94f);
+                    }
+
+
+                    direction = transform.forward;
+                    direction.y = 0;
+
+                    velocity = direction * (aiPathScript.maxSpeed / 50f);
+
+                    if((playerPosition.position - transform.position).magnitude > 2.7f){
+                        transform.position += velocity;
+                    }
                 }
 
                 //player is too far, go back to pathfinding to find next closest point
@@ -72,7 +87,6 @@ public class AIBehavior : MonoBehaviour
                 break;
 
             case MovementState.Searching:
-
                 searchTime -= Time.deltaTime;
 
                 //Increment timer when waiting 
@@ -91,13 +105,16 @@ public class AIBehavior : MonoBehaviour
                     int randomChildIdx = Random.Range(0, listOfRooms[currentRoomIndex].transform.childCount);
                     Transform randomChild = listOfRooms[currentRoomIndex].transform.GetChild(randomChildIdx);
                     aiDestinationSetterScript.target = randomChild;
+
+
+                    //begins wandering when it gets tired of searching if it searches too long
+                    //but only switches mode when at an end node
+                    if (searchTime <= 0.0f)
+                    {
+                        WanderAround();
+                    }
                 }
 
-                //begins wandering when it gets tired of searching if it searches too long
-                if (searchTime <= 0.0f)
-                {
-                    WanderAround();
-                }
                 break;
 
             case MovementState.Wandering:
@@ -147,8 +164,9 @@ public class AIBehavior : MonoBehaviour
         currentBehavior = MovementState.Searching;
         aiPathScript.maxSpeed = 9;
         waitTime = 0.5f;
-        searchTime = 15.0f;
+        searchTime = 20.0f;
     }
+
 
     /*
      * Makes cat wander around aimlessly
