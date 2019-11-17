@@ -13,18 +13,22 @@ public class AIBehavior : MonoBehaviour
     public GameObject motherNode;
     private List<GameObject> listOfRooms;
 
-    public bool seekingPlayer = false;
-    private readonly float waitTime = 2.0f;
-    private float timer = 0.0f;
     Vector3 direction;
     Vector3 velocity;
+    private float searchTime = 15.0f;
+    private float waitTime = 2.0f;
+    private float timer = 0.0f;
+    private enum MovementState { Wandering, Chasing, Searching};
+    private MovementState currentBehavior;
+    private int currentRoomIndex;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //SeekPlayer();
-        BeginWandering();
+        //WanderAround();
+        SearchRoom();
 
         //adds all rooms to room list
         listOfRooms = new List<GameObject>();
@@ -34,80 +38,126 @@ public class AIBehavior : MonoBehaviour
         }
 
         //picks a random node in the first room to go to
-        int randomChildIdx = Random.Range(0, listOfRooms[0].transform.childCount);
-        Transform randomChild = listOfRooms[0].transform.GetChild(randomChildIdx);
+        currentRoomIndex = 0;
+        int randomChildIdx = Random.Range(0, listOfRooms[currentRoomIndex].transform.childCount);
+        Transform randomChild = listOfRooms[currentRoomIndex].transform.GetChild(randomChildIdx);
         aiDestinationSetterScript.target = randomChild;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //found player and will hunt player down to the death!
-        if (seekingPlayer)
+        switch (currentBehavior)
         {
-            Transform playerPosition = playerGO.transform;
-            aiDestinationSetterScript.target = playerPosition;
+            case MovementState.Chasing:
+                Transform playerPosition = playerGO.transform;
+                aiDestinationSetterScript.target = playerPosition;
 
-            //If the cat is very close to player, go offpath for the kill
-            if((playerPosition.position - transform.position).magnitude <= 10)
-            {
-                aiPathScript.isStopped = true;
+                //If the cat is very close to player, go offpath for the kill
+                if ((playerPosition.position - transform.position).magnitude <= 10)
+                {
+                    aiPathScript.isStopped = true;
 
-                direction = (playerGO.transform.position - transform.position).normalized;
-                direction.y = 0;
-                velocity = direction * (aiPathScript.maxSpeed / 65f);
-                transform.position += velocity;
-            }
+                    direction = (playerGO.transform.position - transform.position).normalized;
+                    direction.y = 0;
+                    velocity = direction * (aiPathScript.maxSpeed / 65f);
+                    transform.position += velocity;
+                }
 
-            //player is too far, go back to pathfinding to find next closest point
-            else
-            {
-                aiPathScript.isStopped = false;
-            }
-        }
+                //player is too far, go back to pathfinding to find next closest point
+                else
+                {
+                    aiPathScript.isStopped = false;
+                }
+                break;
 
-        //Wander room to room and waits 2 seconds when at its spot it wants to be at
-        else
-        {
-            //Increment timer when waiting 
-            if (aiPathScript.reachedEndOfPath)
-            {
-                timer += Time.deltaTime;
-            }
+            case MovementState.Searching:
 
-            //Waited long enough. 
-            //Picks a new place to go to
-            if (timer > waitTime)
-            {
-                // Remove the recorded wait time in seconds.
-                timer -= waitTime;
+                searchTime -= Time.deltaTime;
 
-                int randomRoomIdx = Random.Range(0, listOfRooms.Count);
-                int randomChildIdx = Random.Range(0, listOfRooms[randomRoomIdx].transform.childCount);
-                Transform randomChild = listOfRooms[randomRoomIdx].transform.GetChild(randomChildIdx);
-                aiDestinationSetterScript.target = randomChild;
-            }
+                //Increment timer when waiting 
+                if (aiPathScript.reachedEndOfPath)
+                {
+                    timer += Time.deltaTime;
+                }
 
+                //Waited long enough. 
+                //Picks a new place in the same room to go to
+                if (timer > waitTime)
+                {
+                    // Remove the recorded wait time in seconds.
+                    timer -= waitTime;
+
+                    int randomChildIdx = Random.Range(0, listOfRooms[currentRoomIndex].transform.childCount);
+                    Transform randomChild = listOfRooms[currentRoomIndex].transform.GetChild(randomChildIdx);
+                    aiDestinationSetterScript.target = randomChild;
+                }
+
+                //begins wandering when it gets tired of searching if it searches too long
+                if (searchTime <= 0.0f)
+                {
+                    WanderAround();
+                }
+                break;
+
+            case MovementState.Wandering:
+                //Increment timer when waiting 
+                if (aiPathScript.reachedEndOfPath)
+                {
+                    timer += Time.deltaTime;
+                }
+
+                //Waited long enough. 
+                //Picks a new place to go to
+                if (timer > waitTime)
+                {
+                    // Remove the recorded wait time in seconds.
+                    timer -= waitTime;
+
+                    //picks a random room and finds a random spot
+                    currentRoomIndex = Random.Range(0, listOfRooms.Count);
+                    int randomChildIdx = Random.Range(0, listOfRooms[currentRoomIndex].transform.childCount);
+                    Transform randomChild = listOfRooms[currentRoomIndex].transform.GetChild(randomChildIdx);
+                    aiDestinationSetterScript.target = randomChild;
+                }
+                break;
+
+            default:
+                break;
         }
     }
 
     /*
      * Makes cat rush towards the player for the kill!
      */
-    public void SeekPlayer()
+    public void ChasePlayer()
     {
         aiPathScript.isStopped = false;
-        seekingPlayer = true;
+        currentBehavior = MovementState.Chasing;
         aiPathScript.maxSpeed = 13;
+    }
+
+
+    /*
+     * Makes cat move around the room looking for the player
+     */
+    public void SearchRoom()
+    {
+        aiPathScript.isStopped = false;
+        currentBehavior = MovementState.Searching;
+        aiPathScript.maxSpeed = 9;
+        waitTime = 0.5f;
+        searchTime = 15.0f;
     }
 
     /*
      * Makes cat wander around aimlessly
      */
-    public void BeginWandering()
+    public void WanderAround()
     {
         aiPathScript.isStopped = false;
-        seekingPlayer = false;
+        currentBehavior = MovementState.Wandering;
         aiPathScript.maxSpeed = 5;
+        waitTime = 2.0f;
     }
 }
