@@ -8,6 +8,10 @@ public class Pickupable : MonoBehaviour
     public Transform theDest;
     private Quaternion objRot;
     private bool lockRotation;
+    private bool startCarry;
+    private bool endCarry;
+
+    [SerializeField] AudioSource sound = null;
 
     void Start()
     {
@@ -21,6 +25,8 @@ public class Pickupable : MonoBehaviour
         {
             objRot = this.transform.rotation;
         }
+
+        HandleSound();
     }
 
     private void OnMouseDown()
@@ -43,6 +49,9 @@ public class Pickupable : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = false;
             this.transform.position = theDest.position;
             this.transform.parent = GameObject.Find("Destination").transform;
+
+            // update sound noise
+            startCarry = true;
         }
     }
 
@@ -58,6 +67,9 @@ public class Pickupable : MonoBehaviour
 
         // unlock rotation
         lockRotation = false;
+
+        // update sound noise
+        endCarry = true;
     }
 
     private bool DistanceCheck()
@@ -88,4 +100,29 @@ public class Pickupable : MonoBehaviour
         return false;
         
     }
+
+    private void HandleSound()
+    {
+        if (startCarry && lockRotation && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
+        {
+            sound.Play();
+            startCarry = false;
+        }
+
+        if (endCarry || !lockRotation)
+        {
+            sound.Stop();
+            endCarry = false;
+        }
+
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
+        {
+            sound.Pause();
+        }
+        else
+        {
+            sound.UnPause();
+        }
+    }
+
 }
