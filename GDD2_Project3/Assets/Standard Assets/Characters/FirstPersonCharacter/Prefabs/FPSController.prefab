@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1754309531}
   m_Layer: 0
   m_Name: FPSController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 215906881}
   m_Layer: 0
   m_Name: Destination
-  m_TagString: Untagged
+  m_TagString: PickupSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
