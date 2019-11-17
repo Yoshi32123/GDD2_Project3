@@ -10,6 +10,7 @@ public class Pickupable : MonoBehaviour
     private bool lockRotation;
     private bool startCarry;
     private bool endCarry;
+    private bool pickedUp = false;
 
     [SerializeField] AudioSource sound = null;
 
@@ -35,6 +36,7 @@ public class Pickupable : MonoBehaviour
         {
             // updating position
             theDest = pickupZone.transform;
+            pickedUp = true;
 
             // lock rotation and position
             lockRotation = true;
@@ -45,7 +47,7 @@ public class Pickupable : MonoBehaviour
             this.GetComponent<Rigidbody>().freezeRotation = true;
 
             // enable pickup
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
             GetComponent<Rigidbody>().useGravity = false;
             this.transform.position = theDest.position;
             this.transform.parent = GameObject.Find("Destination").transform;
@@ -61,6 +63,7 @@ public class Pickupable : MonoBehaviour
         this.transform.parent = null;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<BoxCollider>().enabled = true;
+        pickedUp = false;
 
         // unfreeze rigidbody fields
         this.GetComponent<Rigidbody>().freezeRotation = false;
@@ -122,6 +125,15 @@ public class Pickupable : MonoBehaviour
         else
         {
             sound.UnPause();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (pickedUp)
+        {
+            this.transform.position = theDest.position;
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 
