@@ -30,6 +30,9 @@ public class Pickupable : MonoBehaviour
         HandleSound();
     }
 
+    /// <summary>
+    /// Runs when mouse is down. Updates item properties if in position for pickup
+    /// </summary>
     private void OnMouseDown()
     {
         if (DistanceCheck())
@@ -57,6 +60,9 @@ public class Pickupable : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Runs when mouse is let go. Resets all property updates
+    /// </summary>
     private void OnMouseUp()
     {
         // disable pickup
@@ -75,6 +81,10 @@ public class Pickupable : MonoBehaviour
         endCarry = true;
     }
 
+    /// <summary>
+    /// Checks if the object trying to be picked up is in range
+    /// </summary>
+    /// <returns>true/false based on in range</returns>
     private bool DistanceCheck()
     {
         // Bit shift the index of the layer (8) to get a bit mask
@@ -104,6 +114,9 @@ public class Pickupable : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Handles the sound of walking with trash
+    /// </summary>
     private void HandleSound()
     {
         if (startCarry && lockRotation && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
@@ -128,6 +141,10 @@ public class Pickupable : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Object does not clip through others
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionExit(Collision collision)
     {
         if (pickedUp)
