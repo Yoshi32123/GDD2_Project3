@@ -6412,6 +6412,11 @@ PrefabInstance:
       propertyPath: motherNode
       value: 
       objectReference: {fileID: 1305867635}
+    - target: {fileID: 8210624916449568894, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8210624916449568885, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
         type: 3}
       propertyPath: maxSpeed
