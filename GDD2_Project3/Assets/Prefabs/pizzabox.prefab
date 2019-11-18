@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1640810655070203393}
   m_Layer: 0
   m_Name: pizzabox
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2861939454912202852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9265862, y: 1.27, z: 7.6155787}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 3657954693746802359}
   m_Father: {fileID: 0}
@@ -91,7 +91,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8fc2cdc3143c0e4478ce71978c1f9f5c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.203
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
