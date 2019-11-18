@@ -74,7 +74,12 @@ public class AIBehavior : MonoBehaviour
 
                     velocity = direction * (aiPathScript.maxSpeed / 50f);
 
-                    if((playerPosition.position - transform.position).magnitude > 2.7f){
+                    Vector3 playerPos = playerPosition.position;
+                    playerPos.y = 0.0f;
+                    Vector3 catPos = transform.position;
+                    catPos.y = 0.0f;
+
+                    if ((playerPosition.position - transform.position).magnitude > 2.7f){
                         transform.position += velocity;
                     }
                 }
@@ -151,7 +156,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
-        aiPathScript.maxSpeed = 13;
+        aiPathScript.maxSpeed = 7;
     }
 
 
