@@ -73,7 +73,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
-        aiPathScript.maxSpeed = 7;
+        aiPathScript.maxSpeed = 2.0f;
     }
 
     /*
@@ -86,7 +86,7 @@ public class AIBehavior : MonoBehaviour
         aiDestinationSetterScript.target = playerPosition;
 
         //If the cat is very close to player, go offpath for the kill
-        if ((playerPosition.position - transform.position).magnitude <= 10)
+        if ((playerPosition.position - transform.position).magnitude <= 4f)
         {
             aiPathScript.isStopped = true;
 
@@ -106,18 +106,22 @@ public class AIBehavior : MonoBehaviour
             direction = transform.forward;
             direction.y = 0;
 
-            //Move in that direction so the cat isn't sliding sidewards slightly
-            velocity = direction * (aiPathScript.maxSpeed / 50f);
-
             //strip the Y position
             Vector3 horizontalPlayerPos = playerPosition.position;
             horizontalPlayerPos.y = 0.0f;
             Vector3 horizontalCatPos = transform.position;
             horizontalCatPos.y = 0.0f;
+            float horizontalDistance = (horizontalPlayerPos - horizontalCatPos).magnitude;
+
+            //Move in that direction so the cat isn't sliding sidewards slightly
+            //Slows down as it gets closer to player. 
+            velocity = direction * (aiPathScript.maxSpeed / 40f) * ((horizontalDistance - 1f)/3.0f);
+           
+
 
             //makes it so the cat stops moving when it just barely 
             //touches player so it doesn't glitch out from the forced collisions
-            if ((horizontalPlayerPos - horizontalCatPos).magnitude > 2.7f)
+            if (horizontalDistance > 1f)
             {
                 transform.position += velocity;
             }
@@ -138,7 +142,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Searching;
-        aiPathScript.maxSpeed = 9;
+        aiPathScript.maxSpeed = 2;
         waitTime = 0.5f;
         searchTime = 20.0f;
     }
@@ -186,7 +190,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Wandering;
-        aiPathScript.maxSpeed = 5;
+        aiPathScript.maxSpeed = 1;
         waitTime = 2.0f;
     }
 
