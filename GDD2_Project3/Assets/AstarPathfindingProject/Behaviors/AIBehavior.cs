@@ -21,9 +21,11 @@ public class AIBehavior : MonoBehaviour
     private enum MovementState { Wandering, Chasing, Searching};
     private MovementState currentBehavior;
     private int currentRoomIndex;
-    private bool jumping = false;
     private CharacterController charContr;
-    private Vector3 gravity = new Vector3(0, -0.6f, 0);
+
+    private bool jumping = false;
+    private readonly float initialJumpSpeed = 0.09f;
+    private Vector3 gravity = new Vector3(0, -0.045f, 0);
     private Vector3 gravVelocity = new Vector3(0, 0, 0);
 
 
@@ -149,37 +151,6 @@ public class AIBehavior : MonoBehaviour
         }
     }
 
-    /*
-     * Will check if it needs to jump to reach its current target passed in
-     */
-    private void TryJumping(Vector3 targetPos)
-    {
-        //direction to next node (not normalized)
-        direction = (targetPos - transform.position);
-
-        //Needs to jump so it jumps because it can.
-        if (direction.y > 0.8f && !jumping)
-        {
-            gravVelocity = new Vector3(0, 0.22f, 0);
-            jumping = true;
-        }
-
-        //Jumped but is now back on ground so reset jump
-        if (jumping)
-        {
-            gravVelocity += gravity * Time.deltaTime;
-            charContr.Move(gravVelocity);
-
-
-            if (charContr.velocity.y <= 0 && direction.y <= 0.1f)
-            {
-                gravVelocity = new Vector3(0, 0, 0);
-                jumping = false;
-            }
-        }
-    }
-
-
 
     /*
      * Makes cat move around the room looking for the player
@@ -200,6 +171,9 @@ public class AIBehavior : MonoBehaviour
     private void Searching()
     {
         searchTime -= Time.deltaTime;
+
+        //attempts to jump onto obstacle in its way
+        TryJumping(aiPathScript.steeringTarget);
 
         //Increment timer when waiting 
         if (aiPathScript.reachedEndOfPath)
@@ -245,6 +219,9 @@ public class AIBehavior : MonoBehaviour
      */
     private void Wandering()
     {
+        //attempts to jump onto obstacle in its way
+        TryJumping(aiPathScript.steeringTarget);
+
         //Increment timer when waiting 
         if (aiPathScript.reachedEndOfPath)
         {
@@ -265,4 +242,36 @@ public class AIBehavior : MonoBehaviour
             aiDestinationSetterScript.target = randomChild;
         }
     }
+
+
+    /*
+     * Will check if it needs to jump to reach its current target passed in
+     */
+    private void TryJumping(Vector3 targetPos)
+    {
+        //direction to next node (not normalized)
+        direction = (targetPos - transform.position);
+
+        //Needs to jump so it jumps because it can.
+        if (direction.y > 0.8f && !jumping)
+        {
+            gravVelocity = new Vector3(0, initialJumpSpeed, 0);
+            jumping = true;
+        }
+
+        //Jumped but is now back on ground so reset jump
+        if (jumping)
+        {
+            gravVelocity += gravity * Time.deltaTime;
+            charContr.Move(gravVelocity);
+
+
+            if (charContr.velocity.y <= 0 && charContr.collisionFlags != 0)
+            {
+                gravVelocity = new Vector3(0, 0, 0);
+                jumping = false;
+            }
+        }
+    }
+
 }
