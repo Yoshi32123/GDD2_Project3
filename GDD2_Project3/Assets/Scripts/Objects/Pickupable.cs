@@ -68,7 +68,6 @@ public class Pickupable : MonoBehaviour
         // disable pickup
         this.transform.parent = null;
         GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<BoxCollider>().enabled = true;
         pickedUp = false;
 
         // unfreeze rigidbody fields
