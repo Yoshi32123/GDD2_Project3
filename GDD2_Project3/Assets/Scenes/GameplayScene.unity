@@ -3433,7 +3433,13 @@ PrefabInstance:
       propertyPath: m_StepOffset
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8210624916449568891, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8210624916449568894, guid: 1af0ce650fd40aa46b6ea5474cf27cf9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1af0ce650fd40aa46b6ea5474cf27cf9, type: 3}
 --- !u!1 &490074239
 GameObject:
