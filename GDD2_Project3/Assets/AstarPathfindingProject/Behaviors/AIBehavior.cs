@@ -21,11 +21,19 @@ public class AIBehavior : MonoBehaviour
     private enum MovementState { Wandering, Chasing, Searching};
     private MovementState currentBehavior;
     private int currentRoomIndex;
+    private bool jumping = false;
+    private CharacterController charContr;
+    private Vector3 gravity = new Vector3(0, -0.6f, 0);
+    private Vector3 gravVelocity = new Vector3(0, 0, 0);
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        jumping = false;
+        charContr = GetComponent<CharacterController>();
+
         ChasePlayer();
         //WanderAround();
         //SearchRoom();
@@ -85,9 +93,14 @@ public class AIBehavior : MonoBehaviour
         Transform playerPosition = playerGO.transform;
         aiDestinationSetterScript.target = playerPosition;
 
+
+        //attempts to jump onto obstacle in its way
+        TryJumping(aiPathScript.steeringTarget);
+        
         //If the cat is very close to player, go offpath for the kill
         if ((playerPosition.position - transform.position).magnitude <= 4f)
         {
+            
             aiPathScript.isStopped = true;
 
             //directon to player
@@ -116,7 +129,9 @@ public class AIBehavior : MonoBehaviour
             //Move in that direction so the cat isn't sliding sidewards slightly
             //Slows down as it gets closer to player. 
             velocity = direction * (aiPathScript.maxSpeed / 40f) * ((horizontalDistance - 1f)/3.0f);
-           
+
+            //tries to jump to player if player is high
+            TryJumping(playerGO.transform.position);
 
 
             //makes it so the cat stops moving when it just barely 
@@ -133,6 +148,37 @@ public class AIBehavior : MonoBehaviour
             aiPathScript.isStopped = false;
         }
     }
+
+    /*
+     * Will check if it needs to jump to reach its current target passed in
+     */
+    private void TryJumping(Vector3 targetPos)
+    {
+        //direction to next node (not normalized)
+        direction = (targetPos - transform.position);
+
+        //Needs to jump so it jumps because it can.
+        if (direction.y > 0.8f && !jumping)
+        {
+            gravVelocity = new Vector3(0, 0.22f, 0);
+            jumping = true;
+        }
+
+        //Jumped but is now back on ground so reset jump
+        if (jumping)
+        {
+            gravVelocity += gravity * Time.deltaTime;
+            charContr.Move(gravVelocity);
+
+
+            if (charContr.velocity.y <= 0 && direction.y <= 0.1f)
+            {
+                gravVelocity = new Vector3(0, 0, 0);
+                jumping = false;
+            }
+        }
+    }
+
 
 
     /*

@@ -2,6 +2,13 @@
 /// \page changelog Changelog
 /// \order{-10}
 ///
+/// - 4.2.10 (2019-11-19)
+/// 	- This release contains fixes and features that have been backported from the 4.3 beta.
+/// 	- Upgrade notes
+/// 		- This release is supported in Unity 2017.3 LTS and later. Support for earlier versions has been dropped (however it probably still works in all 2017.x releases).
+/// 		- The Unity WebPlayer target is no longer supported. This target was deprecated in Unity 5.4.
+/// 	- Fixed a crash when scanning a graph on the WebGL platform and exception support is disabled.
+///
 /// - 4.2.9 (2019-11-15)
 /// 	- This release contains fixes and features that have been backported from the 4.3 beta.
 /// 	- Upgrade notes
