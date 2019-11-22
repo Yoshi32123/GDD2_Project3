@@ -148,11 +148,22 @@ public class Pickupable : MonoBehaviour
     {
         if (pickedUp)
         {
-            //theDest.position = new Vector3(0.0f, -0.25f, 0.5f);
+            //theDest.position = new Vector3(theDest.position.x, theDest.position.y, 2.5f);
             this.transform.position = theDest.position;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        
     }
+
+    ///// <summary>
+    ///// Sets position of the destination so it is closer during a collision
+    ///// </summary>
+    ///// <param name="collision"></param>
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (pickedUp)
+    //    {
+    //        theDest.position = new Vector3(theDest.position.x, theDest.position.y, 0.5f);
+    //    }
+    //}
 
 }
