@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickupSpot
   - Trash
+  - PickupSpot2
   layers:
   - Default
   - TransparentFX
