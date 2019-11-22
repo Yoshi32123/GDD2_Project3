@@ -169,7 +169,7 @@ public class Pickupable : MonoBehaviour
         // check if something is there with that tag
         if (Physics.Raycast(theDest.position, theDest.forward, 0.25f, mask))
         {
-            Debug.Log("Hit static asset");
+            //Debug.Log("Hit static asset");
             OnMouseUp();
         }
     }
