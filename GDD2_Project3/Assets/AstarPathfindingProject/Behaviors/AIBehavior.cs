@@ -12,6 +12,7 @@ public class AIBehavior : MonoBehaviour
     public GameObject playerGO;
     public GameObject motherNode;
     private List<GameObject> listOfRooms;
+    public GameObject OverlayToggle;
 
     Vector3 direction;
     Vector3 velocity;
@@ -57,6 +58,7 @@ public class AIBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         switch (currentBehavior)
         {
             case MovementState.Chasing:
@@ -111,10 +113,10 @@ public class AIBehavior : MonoBehaviour
             direction = direction.normalized;
 
             //error check for if player is directly above
-            if (direction != Vector3.zero)
+            if (direction != Vector3.zero && Time.timeScale != 0)
             {
                 //turns the cat towards the player
-                transform.forward = Vector3.Slerp(direction, transform.forward, 0.94f);
+                transform.forward = Vector3.Slerp(direction, transform.forward, 0.94f * (1/Time.timeScale));
             }
 
             //set direction to where the cat is actually facing
