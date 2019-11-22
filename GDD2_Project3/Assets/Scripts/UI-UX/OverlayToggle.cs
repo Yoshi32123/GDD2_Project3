@@ -14,6 +14,11 @@ public class OverlayToggle : MonoBehaviour
     public GameObject LostCanvas;
     public GameObject FPSController;
 
+    void Start()
+    {
+        Unpause();
+    }
+
     void Update()
     {
         //Show/hides the pause canvas when P or ESc is pressed.
@@ -51,8 +56,8 @@ public class OverlayToggle : MonoBehaviour
     }
 
 
-    ///<summary>unpauses the game. Can be called when clicking play game</summary>
-    public void Unpause()
+    ///<summary>unpauses the game. Needs to be called in start too</summary>
+    private void Unpause()
     {
         FPSController.GetComponent<FirstPersonController>().enabled = true;
         OptionsCanvas.SetActive(false);
