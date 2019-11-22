@@ -16,7 +16,11 @@ public class OverlayToggle : MonoBehaviour
 
     void Start()
     {
-        Unpause();
+        //we are in a scene with FPSController so unpause scene to make sure it can move
+        if(FPSController != null)
+        {
+            Unpause();
+        }
     }
 
     void Update()

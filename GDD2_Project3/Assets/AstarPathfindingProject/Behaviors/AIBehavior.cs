@@ -12,7 +12,6 @@ public class AIBehavior : MonoBehaviour
     public GameObject playerGO;
     public GameObject motherNode;
     private List<GameObject> listOfRooms;
-    public GameObject OverlayToggle;
 
     Vector3 direction;
     Vector3 velocity;
@@ -23,6 +22,7 @@ public class AIBehavior : MonoBehaviour
     private MovementState currentBehavior;
     private int currentRoomIndex;
     private CharacterController charContr;
+    public bool floorDetected;
 
     private bool jumping = false;
     private readonly float initialJumpSpeed = 0.09f;
@@ -255,25 +255,26 @@ public class AIBehavior : MonoBehaviour
         direction = (targetPos - transform.position);
 
         //Needs to jump so it jumps because it can.
-        if (direction.y > 0.4f && !jumping)
+        if (direction.y > 0.2f && !jumping)
         {
             gravVelocity = new Vector3(0, initialJumpSpeed, 0);
             jumping = true;
         }
 
         //Jumped but is now back on ground so reset jump
-        if (jumping)
+        if (jumping && Time.timeScale != 0)
         {
-            gravVelocity += gravity * Time.deltaTime;
+            gravVelocity += gravity * Time.deltaTime * (1 / Time.timeScale);
             charContr.Move(gravVelocity);
 
 
-            if (charContr.velocity.y <= 0 && charContr.collisionFlags != 0)
+            if (charContr.velocity.y <= 1f && charContr.collisionFlags != 0)
             {
                 gravVelocity = new Vector3(0, 0, 0);
                 jumping = false;
             }
         }
+
     }
 
 }
