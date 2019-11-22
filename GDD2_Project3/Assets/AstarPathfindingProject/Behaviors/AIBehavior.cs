@@ -85,7 +85,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
-        aiPathScript.maxSpeed = 2.0f;
+        aiPathScript.maxSpeed = 3.0f;
     }
 
     /*
@@ -268,7 +268,7 @@ public class AIBehavior : MonoBehaviour
             charContr.Move(gravVelocity);
 
 
-            if (charContr.velocity.y <= 1f && charContr.collisionFlags != 0)
+            if (charContr.velocity.y <= 1f && floorDetected)
             {
                 gravVelocity = new Vector3(0, 0, 0);
                 jumping = false;
