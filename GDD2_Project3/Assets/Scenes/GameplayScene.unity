@@ -2817,7 +2817,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270489001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4991,7 +4991,7 @@ PrefabInstance:
     - target: {fileID: 8210624916449568891, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
         type: 3}
       propertyPath: m_StepOffset
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8210624916449568891, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
         type: 3}
@@ -5001,7 +5001,7 @@ PrefabInstance:
     - target: {fileID: 8210624916449568891, guid: 1af0ce650fd40aa46b6ea5474cf27cf9,
         type: 3}
       propertyPath: m_SlopeLimit
-      value: 90
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8210624916449568894, guid: 1af0ce650fd40aa46b6ea5474cf27cf9, type: 3}
