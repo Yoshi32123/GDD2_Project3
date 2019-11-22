@@ -8,6 +8,11 @@ public class Pickupable : MonoBehaviour
     public Transform theDest;
     private Quaternion objRot;
     private bool lockRotation;
+    private bool startCarry;
+    private bool endCarry;
+    private bool pickedUp = false;
+
+    [SerializeField] AudioSource sound = null;
 
     void Start()
     {
@@ -21,14 +26,20 @@ public class Pickupable : MonoBehaviour
         {
             objRot = this.transform.rotation;
         }
+
+        HandleSound();
     }
 
+    /// <summary>
+    /// Runs when mouse is down. Updates item properties if in position for pickup
+    /// </summary>
     private void OnMouseDown()
     {
         if (DistanceCheck())
         {
             // updating position
             theDest = pickupZone.transform;
+            pickedUp = true;
 
             // lock rotation and position
             lockRotation = true;
@@ -39,27 +50,40 @@ public class Pickupable : MonoBehaviour
             this.GetComponent<Rigidbody>().freezeRotation = true;
 
             // enable pickup
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
             GetComponent<Rigidbody>().useGravity = false;
             this.transform.position = theDest.position;
             this.transform.parent = GameObject.Find("Destination").transform;
+
+            // update sound noise
+            startCarry = true;
         }
     }
 
+    /// <summary>
+    /// Runs when mouse is let go. Resets all property updates
+    /// </summary>
     private void OnMouseUp()
     {
         // disable pickup
         this.transform.parent = null;
         GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<BoxCollider>().enabled = true;
+        pickedUp = false;
 
         // unfreeze rigidbody fields
         this.GetComponent<Rigidbody>().freezeRotation = false;
 
         // unlock rotation
         lockRotation = false;
+
+        // update sound noise
+        endCarry = true;
     }
 
+    /// <summary>
+    /// Checks if the object trying to be picked up is in range
+    /// </summary>
+    /// <returns>true/false based on in range</returns>
     private bool DistanceCheck()
     {
         // Bit shift the index of the layer (8) to get a bit mask
@@ -88,4 +112,45 @@ public class Pickupable : MonoBehaviour
         return false;
         
     }
+
+    /// <summary>
+    /// Handles the sound of walking with trash
+    /// </summary>
+    private void HandleSound()
+    {
+        if (startCarry && lockRotation && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
+        {
+            sound.Play();
+            startCarry = false;
+        }
+
+        if (endCarry || !lockRotation)
+        {
+            sound.Stop();
+            endCarry = false;
+        }
+
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
+        {
+            sound.Pause();
+        }
+        else
+        {
+            sound.UnPause();
+        }
+    }
+
+    /// <summary>
+    /// Object does not clip through others
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit(Collision collision)
+    {
+        if (pickedUp)
+        {
+            this.transform.position = theDest.position;
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
+
 }

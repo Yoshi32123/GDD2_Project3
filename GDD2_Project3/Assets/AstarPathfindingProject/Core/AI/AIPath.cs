@@ -126,7 +126,7 @@ namespace Pathfinding {
 		/// Note: <see cref="reachedEndOfPath"/> will become true when the character is within <see cref="endReachedDistance"/> units from the destination
 		/// regardless of what this field is set to.
 		/// </summary>
-		public CloseToDestinationMode whenCloseToDestination = CloseToDestinationMode.ContinueToExactDestination;
+		public CloseToDestinationMode whenCloseToDestination = CloseToDestinationMode.Stop;
 
 		/// <summary>
 		/// Ensure that the character is always on the traversable surface of the navmesh.
