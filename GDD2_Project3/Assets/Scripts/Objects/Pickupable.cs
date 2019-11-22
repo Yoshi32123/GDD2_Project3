@@ -28,6 +28,11 @@ public class Pickupable : MonoBehaviour
             objRot = this.transform.rotation;
         }
 
+        if (pickedUp)
+        {
+            MaskHandle();
+        }
+
         HandleSound();
     }
 
@@ -151,6 +156,21 @@ public class Pickupable : MonoBehaviour
         {
             this.transform.position = theDest.position;
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+    }
+
+    /// <summary>
+    /// Makes sure the object isn't too far into another
+    /// </summary>
+    public void MaskHandle()
+    {
+        LayerMask mask = LayerMask.GetMask("StaticAssets");
+
+        // check if something is there with that tag
+        if (Physics.Raycast(theDest.position, theDest.forward, 0.25f, mask))
+        {
+            Debug.Log("Hit static asset");
+            OnMouseUp();
         }
     }
 }
