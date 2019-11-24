@@ -6,6 +6,12 @@ public class TrashTracker : MonoBehaviour
 {
     [SerializeField] List<GameObject> trash = null;
 
+    // use this to determine when player wins
+    public int TrashCount
+    {
+        get { return trash.Count; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
