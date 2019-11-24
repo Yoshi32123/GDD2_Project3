@@ -62,10 +62,16 @@ public class AIBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CheckPlayerVisible())
-            currentBehavior = MovementState.Chasing;
-        else if (currentBehavior == MovementState.Chasing)
-            currentBehavior = MovementState.Searching;
+        if (currentBehavior != MovementState.Chasing)
+            if (CheckPlayerVisible())
+            {
+                ChasePlayer();
+            }
+        else
+            if (!CheckPlayerVisible())
+            {
+                SearchRoom();
+            }
 
         switch (currentBehavior)
         {
@@ -94,6 +100,7 @@ public class AIBehavior : MonoBehaviour
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
         aiPathScript.maxSpeed = 3.0f;
+        Debug.Log("Chasing");
     }
 
     /*
@@ -172,6 +179,7 @@ public class AIBehavior : MonoBehaviour
         aiPathScript.maxSpeed = 2;
         waitTime = 0.5f;
         searchTime = 20.0f;
+        Debug.Log("Searching");
     }
 
     /*
@@ -222,6 +230,7 @@ public class AIBehavior : MonoBehaviour
         currentBehavior = MovementState.Wandering;
         aiPathScript.maxSpeed = 1;
         waitTime = 2.0f;
+        Debug.Log("Wander");
     }
 
     /*
