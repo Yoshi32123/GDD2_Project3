@@ -3383,6 +3383,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &337796027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b7e80b5b514a1a641aa2541231379ec6,
+    type: 3}
+  m_PrefabInstance: {fileID: 566340237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &337796031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337796027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 101.42434, y: 145.45961, z: 31.405224}
+  m_Center: {x: 3.4358482, y: -5.3067474, z: 27.112932}
 --- !u!1001 &341184600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16296,7 +16315,7 @@ GameObject:
   - component: {fileID: 1626872709}
   - component: {fileID: 1626872708}
   - component: {fileID: 1626872707}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bed_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17467,7 +17486,7 @@ GameObject:
   - component: {fileID: 1677837982}
   - component: {fileID: 1677837981}
   - component: {fileID: 1677837980}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bath_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18174,7 +18193,7 @@ GameObject:
   - component: {fileID: 1744326443}
   - component: {fileID: 1744326442}
   - component: {fileID: 1744326441}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18433,7 +18452,7 @@ GameObject:
   - component: {fileID: 1775184582}
   - component: {fileID: 1775184581}
   - component: {fileID: 1775184580}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Doorway_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19642,6 +19661,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923012190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1923957983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2efb098e46ba3e44cae4f1ba84005732,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284885476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1923957984
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923957983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6134242, y: 0.6612871, z: 2.026745}
+  m_Center: {x: -0.0013271387, y: -0.026225135, z: 1.0062951}
 --- !u!1 &1957604287
 GameObject:
   m_ObjectHideFlags: 0
@@ -21367,7 +21405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129428053}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Floors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
