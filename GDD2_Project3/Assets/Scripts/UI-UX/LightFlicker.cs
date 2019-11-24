@@ -5,17 +5,18 @@ using UnityEngine;
 public class LightFlicker : MonoBehaviour
 {
     Light Light;
-    bool flickering;
-    float numCheck = 0;
-    bool up = false;
-    float amplitude = 0;
-    float angularFrequency = 0;
-
+    //[SerializeField] bool flickering;
+    [SerializeField] float numCheck = 0;
+    //[SerializeField] bool up = false;
+    [SerializeField] float amplitude = .2f;
+    [SerializeField] float angularFrequency = 2 * Mathf.PI* 100;
+    [SerializeField] float intensityBase;
 
     // Start is called before the first frame update
     void Start()
     {
         Light = GetComponent<Light>();
+        //StartFlicker();
         StartCoroutine(Run());
     }
 
@@ -28,39 +29,48 @@ public class LightFlicker : MonoBehaviour
     {
         while (true)
         {
-            //yield return new WaitForSeconds(Random.Range(1f, 50f));
-            //yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(Random.Range(3f, 10f));
+            //yield return new WaitForSeconds(2f);
 
-            StartCoroutine(Flickering());
+            StartFlicker();
         }
+    }
+
+    private void StartFlicker()
+    {
+        amplitude = .15f;
+        angularFrequency = 2 * Mathf.PI * 3f;
+        numCheck = 0;
+
+        //Debug.Log("preliminary log:");
+        //Debug.Log("flickering: " + flickering.ToString());
+        //Debug.Log("amplitude: " + amplitude.ToString());
+        //Debug.Log("angular frequency: " + angularFrequency.ToString());
+        StartCoroutine(Flickering());
     }
 
     IEnumerator Flickering()
     {
-        flickering = true;
-        amplitude = .2f;
-        angularFrequency = 2 * Mathf.PI * 100;
+
         while (true)
         {
+            //Debug.Log("in-coroutine log:");
+            //Debug.Log("flickering: " + flickering.ToString());
+            //Debug.Log("amplitude: " + amplitude.ToString());
+            //Debug.Log("angular frequency: " + angularFrequency.ToString());
+
             // give a time frame for these events
             yield return new WaitForSeconds(.01f);
             numCheck += .01f;
-            if (flickering)
+            
+            // oscillating as a decaying sinusoidal wave
+            // amplitude * e^(decayconstant * t) * (cos(angularFrequency * time + phase angle)) + base intensity
+            Light.intensity = amplitude * Mathf.Exp(-3f * numCheck) * (Mathf.Cos(angularFrequency * numCheck + 1f)) + intensityBase;
+            if (numCheck >= 1f)
             {
-                // oscillating as a decaying sinusoidal wave
-                Light.intensity = amplitude * Mathf.Sin(angularFrequency * numCheck) + .3f;
-                amplitude *= -.9f;
-                if (amplitude <= .05f)
-                {
-                    flickering = false;
-                }
-            }
-            else
-            {
-                // end the flickering
-                //StopCoroutine(Flickering());
+                numCheck = 0;
+                yield break;
             }
         }
-        
     }
 }
