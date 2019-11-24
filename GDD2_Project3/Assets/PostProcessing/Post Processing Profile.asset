@@ -43,8 +43,8 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 1.787
-      radius: 7.83
+      intensity: 0.86
+      radius: 10.62
       sampleCount: 10
       downsampling: 1
       forceForwardCompatibility: 0
@@ -135,13 +135,13 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.80384743, g: 0.9366281, b: 1, a: 0}
-          power: {r: 0.8289131, g: 0.8367126, b: 1, a: 0}
-          offset: {r: 0.81266516, g: 0.87571746, b: 1, a: 0}
+          slope: {r: 0.8326248, g: 0.936145, b: 1, a: 0}
+          power: {r: 0.86170185, g: 0.8893322, b: 1, a: 0}
+          offset: {r: 0.81965864, g: 0.8461986, b: 1, a: 0}
         linear:
-          lift: {r: 0, g: 0, b: 0, a: 0}
-          gamma: {r: 0, g: 0, b: 0, a: 0}
-          gain: {r: 0, g: 0, b: 0, a: 0}
+          lift: {r: 1, g: 1, b: 1, a: 0}
+          gamma: {r: 1, g: 1, b: 1, a: 0}
+          gain: {r: 1, g: 1, b: 1, a: 0}
       curves:
         master:
           curve:
@@ -323,7 +323,7 @@ MonoBehaviour:
       mode: 0
       color: {r: 0.23584908, g: 0.11792454, b: 0.136149, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.398
+      intensity: 0.249
       smoothness: 0.2
       roundness: 1
       mask: {fileID: 0}

@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class AIBehavior : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+    [SerializeField] float visionAngle = 1.5f; // peripheral vision
+    [SerializeField] float visionRange = 15.0f; // how far the cat can see
+
     public AIPath aiPathScript;
     public AIDestinationSetter aiDestinationSetterScript;
     public GameObject playerGO;
@@ -37,8 +41,8 @@ public class AIBehavior : MonoBehaviour
         jumping = false;
         charContr = GetComponent<CharacterController>();
 
-        ChasePlayer();
-        //WanderAround();
+        //ChasePlayer();
+        WanderAround();
         //SearchRoom();
 
         //adds all rooms to room list
@@ -58,6 +62,10 @@ public class AIBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CheckPlayerVisible())
+            currentBehavior = MovementState.Chasing;
+        else if (currentBehavior == MovementState.Chasing)
+            currentBehavior = MovementState.Searching;
 
         switch (currentBehavior)
         {
@@ -275,6 +283,41 @@ public class AIBehavior : MonoBehaviour
             }
         }
 
+    }
+
+    /// <summary>
+    /// checks if player is within visible range and if any obstacles are between cat and player
+    /// </summary>
+    /// <returns></returns>
+    bool CheckPlayerVisible()
+    {
+        //add a small amount to player position so cat can see player's head
+        Vector3 playerPos = player.transform.position + new Vector3(0.0f, 0.39f, 0.0f);
+        Vector3 catToPlayer = playerPos - transform.position;
+
+        //get angle between cat and player
+        float theta = Mathf.Acos(Vector3.Dot(transform.forward, catToPlayer) / (transform.forward.magnitude * catToPlayer.magnitude));
+
+        //if player is within the peripheral vision of the cat and within the visual range of the cat
+        if (theta < visionAngle / 2 && catToPlayer.sqrMagnitude < visionRange * visionRange)
+        {
+            //cast a ray from cat to player's head
+            RaycastHit raycastHit;
+            Physics.Raycast(transform.position, catToPlayer.normalized, out raycastHit, catToPlayer.magnitude);
+
+            //if the ray hits anything other than the player, return false
+            if (raycastHit.collider != null && raycastHit.collider.gameObject.tag != "Player")
+            {
+                return false;
+            }
+            else
+            {
+                Debug.Log("Whaddup, son?");
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
