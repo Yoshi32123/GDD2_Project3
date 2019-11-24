@@ -70,6 +70,13 @@ public class OverlayToggle : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    ///<summary>resets the time scale back to 1 (call when quitting)</summary>
+    public void ResetTimeScale()
+    {
+        Time.timeScale = 1;
+    }
+
+
     ///<summary>alternates the option state</summary>
     public void ToggleOptions()
     {

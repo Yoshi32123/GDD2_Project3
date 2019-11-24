@@ -658,7 +658,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameplayScene
+          m_StringArgument: LoadingScene
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1333,6 +1333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSwitcher
       objectReference: {fileID: 0}
+    - target: {fileID: 3180248004048468396, guid: 51283f59caa152f409633f2068c92270,
+        type: 3}
+      propertyPath: OptionsCanvas
+      value: 
+      objectReference: {fileID: 1197328307}
     - target: {fileID: 3180248004048468399, guid: 51283f59caa152f409633f2068c92270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1388,11 +1393,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3180248004048468396, guid: 51283f59caa152f409633f2068c92270,
-        type: 3}
-      propertyPath: OptionsCanvas
-      value: 
-      objectReference: {fileID: 1197328307}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51283f59caa152f409633f2068c92270, type: 3}
 --- !u!114 &4261826604813503382 stripped
