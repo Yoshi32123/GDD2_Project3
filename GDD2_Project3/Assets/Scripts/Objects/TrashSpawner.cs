@@ -12,10 +12,14 @@ public class TrashSpawner : MonoBehaviour
     {
         spawnpoints = GameObject.FindGameObjectsWithTag("TrashSpawnPoint");
 
+        List<int> usedSpawns = new List<int>();
         for(int i = 0; i < numTrash; i++)
         {
             int trashType = Random.Range(0, pref_trash.Count);
-            int spawnpoint = Random.Range(0, spawnpoints.Length);
+            int spawnpoint;
+            do { spawnpoint = Random.Range(0, spawnpoints.Length); } while (usedSpawns.Contains(spawnpoint));
+            usedSpawns.Add(spawnpoint);
+            
 
             Instantiate(pref_trash[trashType], spawnpoints[spawnpoint].transform);
         }
