@@ -62,16 +62,22 @@ public class AIBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentBehavior != MovementState.Chasing)
-            if (CheckPlayerVisible())
-            {
+       
+        if (CheckPlayerVisible())
+        {
+            if (currentBehavior != MovementState.Chasing)
+                //Changes mode to chasing player when player is seen
                 ChasePlayer();
-            }
+        }
         else
-            if (!CheckPlayerVisible())
-            {
+        {
+            if (currentBehavior == MovementState.Chasing)
+                //Will switch to room searching if the cat loses the player
+                //while chasing.
+                //
+                //Will also switch to wandering after time has passed in the Searching method automatically
                 SearchRoom();
-            }
+        }
 
         switch (currentBehavior)
         {
@@ -179,6 +185,7 @@ public class AIBehavior : MonoBehaviour
         aiPathScript.maxSpeed = 2;
         waitTime = 0.5f;
         searchTime = 20.0f;
+
         Debug.Log("Searching");
     }
 
