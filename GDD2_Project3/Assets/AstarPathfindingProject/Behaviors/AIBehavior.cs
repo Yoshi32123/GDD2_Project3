@@ -279,7 +279,7 @@ public class AIBehavior : MonoBehaviour
         direction = (targetPos - transform.position);
 
         //Needs to jump so it jumps because it can.
-        if (direction.y > 0.2f && !jumping)
+        if (direction.y > 0.1f && !jumping)
         {
             gravVelocity = new Vector3(0, initialJumpSpeed, 0);
             jumping = true;
