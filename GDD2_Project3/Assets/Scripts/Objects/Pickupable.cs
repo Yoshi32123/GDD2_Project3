@@ -19,6 +19,7 @@ public class Pickupable : MonoBehaviour
     {
         lockRotation = false;
         pickupZone = GameObject.FindGameObjectWithTag("PickupSpot");
+        theDest = pickupZone.transform;
     }
 
     void Update()
