@@ -32,7 +32,7 @@ public class PlayerStamina : MonoBehaviour
     {
         actualTime += Time.deltaTime;
         UpdateStamina();
-        
+        UpdateStaminaUI();
 
         // if stamina is out, turn off walk
         if (stamina == 0)
@@ -72,51 +72,41 @@ public class PlayerStamina : MonoBehaviour
     {
         if (stamina == 5)
         {
-            block1.GetComponent<Image>().sprite = filled;
-            block2.GetComponent<Image>().sprite = filled;
-            block3.GetComponent<Image>().sprite = filled;
-            block4.GetComponent<Image>().sprite = filled;
-            block5.GetComponent<Image>().sprite = filled;
+            block1.GetComponent<Image>().overrideSprite = filled;
+            block2.GetComponent<Image>().overrideSprite = filled;
+            block3.GetComponent<Image>().overrideSprite = filled;
+            block4.GetComponent<Image>().overrideSprite = filled;
+            block5.GetComponent<Image>().overrideSprite = filled;
         }
         else if (stamina == 4)
         {
-            block1.GetComponent<Image>().sprite = filled;
-            block2.GetComponent<Image>().sprite = filled;
-            block3.GetComponent<Image>().sprite = filled;
-            block4.GetComponent<Image>().sprite = filled;
-            block5.GetComponent<Image>().sprite = empty;
+            block1.GetComponent<Image>().overrideSprite = filled;
+            block2.GetComponent<Image>().overrideSprite = filled;
+            block3.GetComponent<Image>().overrideSprite = filled;
+            block4.GetComponent<Image>().overrideSprite = filled;
+            block5.GetComponent<Image>().overrideSprite = empty;
         }
         else if (stamina == 3)
         {
-            block1.GetComponent<Image>().sprite = filled;
-            block2.GetComponent<Image>().sprite = filled;
-            block3.GetComponent<Image>().sprite = filled;
-            block4.GetComponent<Image>().sprite = empty;
-            block5.GetComponent<Image>().sprite = empty;
+            block1.GetComponent<Image>().overrideSprite = filled;
+            block2.GetComponent<Image>().overrideSprite = filled;
+            block3.GetComponent<Image>().overrideSprite = filled;
+            block4.GetComponent<Image>().overrideSprite = empty;
         }
         else if (stamina == 2)
         {
-            block1.GetComponent<Image>().sprite = filled;
-            block2.GetComponent<Image>().sprite = filled;
-            block3.GetComponent<Image>().sprite = empty;
-            block4.GetComponent<Image>().sprite = empty;
-            block5.GetComponent<Image>().sprite = empty;
+            block1.GetComponent<Image>().overrideSprite = filled;
+            block2.GetComponent<Image>().overrideSprite = filled;
+            block3.GetComponent<Image>().overrideSprite = empty;
         }
         else if (stamina == 1)
         {
-            block1.GetComponent<Image>().sprite = filled;
-            block2.GetComponent<Image>().sprite = empty;
-            block3.GetComponent<Image>().sprite = empty;
-            block4.GetComponent<Image>().sprite = empty;
-            block5.GetComponent<Image>().sprite = empty;
+            block1.GetComponent<Image>().overrideSprite = filled;
+            block2.GetComponent<Image>().overrideSprite = empty;
         }
-        else if (stamina == 0)
+        else
         {
-            block1.GetComponent<Image>().sprite = empty;
-            block2.GetComponent<Image>().sprite = empty;
-            block3.GetComponent<Image>().sprite = empty;
-            block4.GetComponent<Image>().sprite = empty;
-            block5.GetComponent<Image>().sprite = empty;
+            block1.GetComponent<Image>().overrideSprite = empty;
         }
     }
 }

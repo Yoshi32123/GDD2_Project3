@@ -342,6 +342,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e575a81b9a15cba40ac6fa38bd02343b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  block1: {fileID: 0}
+  block2: {fileID: 0}
+  block3: {fileID: 0}
+  block4: {fileID: 0}
+  block5: {fileID: 0}
+  filled: {fileID: 21300000, guid: c3a0118a58e5be94499f2f25dfa4c743, type: 3}
+  empty: {fileID: 21300000, guid: c56a5e218f25fe94dae98b7a332ea193, type: 3}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +407,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.05
   far clip plane: 1000
   field of view: 60
   orthographic: 0
