@@ -419,8 +419,8 @@ MonoBehaviour:
   uniqueID: 4813723934733901835
   end: {fileID: 964223489}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!114 &37119931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,8 +1291,8 @@ MonoBehaviour:
   uniqueID: 2132428195883674156
   end: {fileID: 1370959631}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!114 &128915609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,8 +1309,8 @@ MonoBehaviour:
   uniqueID: 4911980344161415777
   end: {fileID: 438318905}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!1 &142754397
 GameObject:
   m_ObjectHideFlags: 0
@@ -13417,8 +13417,8 @@ MonoBehaviour:
   uniqueID: 9176934009355140888
   end: {fileID: 186331240}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!114 &1162441084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14056,8 +14056,8 @@ MonoBehaviour:
   uniqueID: 809484018307216938
   end: {fileID: 1062388132}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!1001 &1214944108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19046,8 +19046,8 @@ MonoBehaviour:
   uniqueID: 6627519162721970989
   end: {fileID: 926244704}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!1 &1612334987
 GameObject:
   m_ObjectHideFlags: 0
@@ -19736,8 +19736,8 @@ MonoBehaviour:
   uniqueID: 268301540663649323
   end: {fileID: 44180951}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!114 &1651819330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19754,8 +19754,8 @@ MonoBehaviour:
   uniqueID: 7115913799038413495
   end: {fileID: 1854717698}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!23 &1651819332
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20439,8 +20439,8 @@ MonoBehaviour:
   uniqueID: 7346928379331829813
   end: {fileID: 1257290308}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!114 &1688289073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20457,8 +20457,8 @@ MonoBehaviour:
   uniqueID: 3655357293670679131
   end: {fileID: 535487798}
   costFactor: 1
-  oneWay: 1
-  deleteConnection: 0
+  oneWay: 0
+  deleteConnection: 1
 --- !u!1 &1688690509
 GameObject:
   m_ObjectHideFlags: 0

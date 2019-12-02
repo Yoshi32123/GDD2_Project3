@@ -33,11 +33,14 @@ public class AIBehavior : MonoBehaviour
     private Vector3 gravity = new Vector3(0, -0.045f, 0);
     private Vector3 gravVelocity = new Vector3(0, 0, 0);
 
+    private Transform knownPlayerPosition;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        knownPlayerPosition = new GameObject().transform;
         jumping = false;
         charContr = GetComponent<CharacterController>();
 
@@ -115,15 +118,15 @@ public class AIBehavior : MonoBehaviour
      */
     private void Chasing()
     {
-        Transform playerPosition = playerGO.transform;
-        aiDestinationSetterScript.target = playerPosition;
+        knownPlayerPosition.position = playerGO.transform.position;
+        aiDestinationSetterScript.target = knownPlayerPosition;
 
 
         //attempts to jump onto obstacle in its way
         TryJumping(aiPathScript.steeringTarget);
         
         //If the cat is very close to player, go offpath for the kill
-        if ((playerPosition.position - transform.position).magnitude <= 4f)
+        if ((knownPlayerPosition.position - transform.position).magnitude <= 4f)
         {
             
             aiPathScript.isStopped = true;
@@ -145,7 +148,7 @@ public class AIBehavior : MonoBehaviour
             direction.y = 0;
 
             //strip the Y position
-            Vector3 horizontalPlayerPos = playerPosition.position;
+            Vector3 horizontalPlayerPos = knownPlayerPosition.position;
             horizontalPlayerPos.y = 0.0f;
             Vector3 horizontalCatPos = transform.position;
             horizontalCatPos.y = 0.0f;
@@ -279,7 +282,7 @@ public class AIBehavior : MonoBehaviour
         direction = (targetPos - transform.position);
 
         //Needs to jump so it jumps because it can.
-        if (direction.y > 0.1f && !jumping)
+        if (direction.y > 0.05f && !jumping)
         {
             gravVelocity = new Vector3(0, initialJumpSpeed, 0);
             jumping = true;
