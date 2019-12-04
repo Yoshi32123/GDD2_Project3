@@ -13,7 +13,7 @@ public class ColorPulse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float colorValue = 1.5f + Mathf.PingPong(Time.time * 3, 3.0f);
+        float colorValue = 1.5f + Mathf.PingPong(Time.time * 20, 20.0f);
         gameObject.GetComponent<Renderer>().material.SetColor("_Color", new Color(colorValue, colorValue, colorValue));
     }
 }
