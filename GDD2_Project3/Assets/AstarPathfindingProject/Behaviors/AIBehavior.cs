@@ -29,7 +29,7 @@ public class AIBehavior : MonoBehaviour
     public bool floorDetected;
 
     private bool jumping = false;
-    private readonly float initialJumpSpeed = 0.09f;
+    private readonly float initialJumpSpeed = 0.15f;
     private Vector3 gravity = new Vector3(0, -0.045f, 0);
     private Vector3 gravVelocity = new Vector3(0, 0, 0);
 
