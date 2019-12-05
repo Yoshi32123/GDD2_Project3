@@ -31,8 +31,16 @@ public class PlayerHealth : MonoBehaviour
     {
         // press b to simulate damge currently
         if (Input.GetKey(KeyCode.B))
+            damaged = !damaged;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision");
+
+        if (collision.gameObject.tag == "Cat")
+        {
             damaged = true;
-        else
-            damaged = false;
+        }
     }
 }
