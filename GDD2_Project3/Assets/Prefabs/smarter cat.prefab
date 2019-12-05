@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 8210624916449568885}
   - component: {fileID: 8210624916449568884}
   m_Layer: 0
-  m_Name: cat 1
+  m_Name: smarter cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,10 +529,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa952be19549a44abd3626bca6c7448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  visionAngle: 1.5
+  visionRange: 15
   aiPathScript: {fileID: 8210624916449568885}
   aiDestinationSetterScript: {fileID: 8210624916449568886}
   playerGO: {fileID: 0}
   motherNode: {fileID: 0}
+  floorDetected: 0
 --- !u!1 &9069139181897785668
 GameObject:
   m_ObjectHideFlags: 0
