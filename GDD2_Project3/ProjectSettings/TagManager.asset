@@ -9,6 +9,7 @@ TagManager:
   - PickupSpot2
   - StaticAsset
   - TrashSpawnPoint
+  - Cat
   layers:
   - Default
   - TransparentFX
