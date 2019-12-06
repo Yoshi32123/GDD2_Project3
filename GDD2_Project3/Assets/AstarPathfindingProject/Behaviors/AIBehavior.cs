@@ -164,7 +164,7 @@ public class AIBehavior : MonoBehaviour
 
             //makes it so the cat stops moving when it just barely 
             //touches player so it doesn't glitch out from the forced collisions
-            if (horizontalDistance > 1f)
+            if (horizontalDistance > 1.8f)
             {
                 transform.position += velocity;
             }
