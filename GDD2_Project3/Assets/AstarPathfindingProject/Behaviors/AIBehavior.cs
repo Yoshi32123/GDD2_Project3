@@ -316,14 +316,14 @@ public class AIBehavior : MonoBehaviour
         Vector3 catToPlayer = playerPos - eyesPosition.transform.position;
 
         //get angle between cat and player
-        float theta = Mathf.Acos(Vector3.Dot(transform.forward, catToPlayer) / (transform.forward.magnitude * catToPlayer.magnitude));
+        float theta = Mathf.Acos(Vector3.Dot(eyesPosition.transform.forward, catToPlayer) / (eyesPosition.transform.forward.magnitude * catToPlayer.magnitude));
 
         //if player is within the peripheral vision of the cat and within the visual range of the cat
         if (theta < visionAngle / 2 && catToPlayer.sqrMagnitude < visionRange * visionRange)
         {
             //cast a ray from cat to player's head
             RaycastHit raycastHit;
-            Physics.Raycast(transform.position, catToPlayer.normalized, out raycastHit, catToPlayer.magnitude);
+            Physics.Raycast(eyesPosition.transform.position, catToPlayer.normalized, out raycastHit, catToPlayer.magnitude);
 
             //if the ray hits anything other than the player or cat, return false
             if (raycastHit.collider != null && raycastHit.collider.gameObject.tag != "Player" && raycastHit.collider.gameObject.tag != "Cat")
