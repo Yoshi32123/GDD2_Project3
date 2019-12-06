@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
 {
+    [SerializeField] List<GameObject> trash = null;
     [SerializeField] List<GameObject> pref_trash;
     [SerializeField] int numTrash = 5;
     GameObject[] spawnpoints;
+
+    // use this to determine when player wins
+    public int TrashCount
+    {
+        get { return trash.Count; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +25,39 @@ public class TrashSpawner : MonoBehaviour
         {
             int trashType = Random.Range(0, pref_trash.Count);
             int spawnpoint;
-            do { spawnpoint = Random.Range(0, spawnpoints.Length); } while (usedSpawns.Contains(spawnpoint));
+            do{
+                spawnpoint = Random.Range(0, spawnpoints.Length);
+            } while (usedSpawns.Contains(spawnpoint));
             usedSpawns.Add(spawnpoint);
-            
 
-            Instantiate(pref_trash[trashType], spawnpoints[spawnpoint].transform);
+            trash.Add(Instantiate(pref_trash[trashType], spawnpoints[spawnpoint].transform));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CheckEmpty();
+    }
+
+    /// <summary>
+    /// Checks for a null spot in garbage
+    /// </summary>
+    public void CheckEmpty()
+    {
+        for (int i = 0; i < trash.Count; i++)
+        {
+            if (trash[i] == null)
+            {
+                trash.RemoveAt(i);
+                i--;
+            }
+        }
+
+        if (TrashCount == 0)
+        {
+            // win game here
+
+        }
     }
 }

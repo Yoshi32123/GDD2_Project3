@@ -34,5 +34,11 @@ public class TrashTracker : MonoBehaviour
                 i--;
             }
         }
+
+        if (TrashCount == 0)
+        {
+            // win game here
+
+        }
     }
 }

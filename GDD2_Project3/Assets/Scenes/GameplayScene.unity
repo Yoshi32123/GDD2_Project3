@@ -247,6 +247,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18154700}
+  - component: {fileID: 18154701}
+  - component: {fileID: 18154702}
   m_Layer: 0
   m_Name: Garbage
   m_TagString: Untagged
@@ -273,6 +275,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18154701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18154699}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a2732c93f54e548bd22427909ba80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trash: []
+  pref_trash:
+  - {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847, type: 3}
+  - {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2, type: 3}
+  numTrash: 5
+--- !u!114 &18154702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18154699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2086300cb5285d94a98e3937006715a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trash:
+  - {fileID: 1778038357}
+  - {fileID: 1800894476}
+  - {fileID: 1859930913}
+  - {fileID: 891707558}
+  - {fileID: 280052254}
 --- !u!1001 &20626476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6746,6 +6783,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d0882da95153541c09fc1451e68b2ec1,
     type: 3}
   m_PrefabInstance: {fileID: 278473746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &280052254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+    type: 3}
+  m_PrefabInstance: {fileID: 1133409887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &287844386
 GameObject:
@@ -25789,6 +25832,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 890958106}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &891707558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 982438192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895113596
 GameObject:
   m_ObjectHideFlags: 0
@@ -38025,6 +38074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizzabox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1291687695535405687, guid: 0f03e302789b4bc46a831c6e30f508e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42385,6 +42439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RollerBall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458657446533822062, guid: baeb0bb88954c4849bc5b17cc734a847,
         type: 3}
@@ -87273,6 +87332,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09514169, y: 0.91874945, z: 0.09152729}
   m_Center: {x: 1.8994085, y: 0.32998943, z: 0.18333244}
+--- !u!1 &1778038357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+    type: 3}
+  m_PrefabInstance: {fileID: 2125767916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1784196703
 GameObject:
   m_ObjectHideFlags: 0
@@ -87519,6 +87584,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d0882da95153541c09fc1451e68b2ec1,
     type: 3}
   m_PrefabInstance: {fileID: 1794213271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1800894476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2055762714}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1803882592
 GameObject:
@@ -88964,6 +89035,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854717697}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1859930913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140448694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1863479634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103173,6 +103250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizzabox
       objectReference: {fileID: 0}
+    - target: {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1291687695535405687, guid: 0f03e302789b4bc46a831c6e30f508e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -104707,6 +104789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RollerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5458657446533822062, guid: baeb0bb88954c4849bc5b17cc734a847,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -105035,6 +105122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RollerBall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458657446533822062, guid: baeb0bb88954c4849bc5b17cc734a847,
         type: 3}
