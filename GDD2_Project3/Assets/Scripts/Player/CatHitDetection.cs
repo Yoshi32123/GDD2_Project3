@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
-public class PlayerHealth : MonoBehaviour
+public class CatHitDetection : MonoBehaviour
 {
     private bool damaged;
+    public GameObject cameraObj;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +20,9 @@ public class PlayerHealth : MonoBehaviour
         CheckCatCollision();
 
         if (damaged == true)
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = true;
+            cameraObj.GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = true;
         else
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = false;
+            cameraObj.GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = false;
     }
 
     /// <summary>
@@ -29,18 +30,16 @@ public class PlayerHealth : MonoBehaviour
     /// </summary>
     public void CheckCatCollision()
     {
-        // press b to simulate damge currently
-        if (Input.GetKey(KeyCode.B))
+        // press b to simulate damage indicator currently
+        if (Input.GetKeyDown(KeyCode.B))
             damaged = !damaged;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
-
-        if (collision.gameObject.tag == "Cat")
-        {
+        if (other.gameObject.name == "player")
             damaged = true;
-        }
+
+        //Debug.Log("collision is working, damaged = " + damaged);
     }
 }
