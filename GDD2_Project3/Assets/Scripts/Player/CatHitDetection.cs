@@ -5,8 +5,9 @@ using UnityEngine.PostProcessing;
 
 public class CatHitDetection : MonoBehaviour
 {
-    private bool damaged;
+    public bool damaged;
     public GameObject cameraObj;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,11 @@ public class CatHitDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "player")
+        if (other.gameObject.name == "player" && !player.GetComponent<PlayerHealth>().JustHit)
+        {
             damaged = true;
+            player.GetComponent<PlayerHealth>().TakeDamage();
+        }
 
         //Debug.Log("collision is working, damaged = " + damaged);
     }

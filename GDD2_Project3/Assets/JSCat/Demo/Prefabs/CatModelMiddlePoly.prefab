@@ -2560,4 +2560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4538d4942b4054c9607095c3c23060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damaged: 0
   cameraObj: {fileID: 0}
+  player: {fileID: 0}

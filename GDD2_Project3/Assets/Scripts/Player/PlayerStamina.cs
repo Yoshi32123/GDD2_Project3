@@ -109,4 +109,12 @@ public class PlayerStamina : MonoBehaviour
             block1.GetComponent<Image>().overrideSprite = empty;
         }
     }
+
+    /// <summary>
+    /// Resets the stamina
+    /// </summary>
+    public void ResetStamina()
+    {
+        stamina = 5;
+    }
 }
