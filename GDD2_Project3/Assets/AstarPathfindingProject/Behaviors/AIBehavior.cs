@@ -15,6 +15,7 @@ public class AIBehavior : MonoBehaviour
     public AIDestinationSetter aiDestinationSetterScript;
     public GameObject playerGO;
     public GameObject motherNode;
+    public GameObject eyesPosition;
     private List<GameObject> listOfRooms;
 
     Vector3 direction;
@@ -282,7 +283,7 @@ public class AIBehavior : MonoBehaviour
         direction = (targetPos - transform.position);
 
         //Needs to jump so it jumps because it can.
-        if (direction.y > 0.05f && !jumping)
+        if (direction.y > 0.8f && !jumping)
         {
             gravVelocity = new Vector3(0, initialJumpSpeed, 0);
             jumping = true;
@@ -312,7 +313,7 @@ public class AIBehavior : MonoBehaviour
     {
         //add a small amount to player position so cat can see player's head
         Vector3 playerPos = player.transform.position + new Vector3(0.0f, 0.39f, 0.0f);
-        Vector3 catToPlayer = playerPos - transform.position;
+        Vector3 catToPlayer = playerPos - eyesPosition.transform.position;
 
         //get angle between cat and player
         float theta = Mathf.Acos(Vector3.Dot(transform.forward, catToPlayer) / (transform.forward.magnitude * catToPlayer.magnitude));
@@ -324,8 +325,8 @@ public class AIBehavior : MonoBehaviour
             RaycastHit raycastHit;
             Physics.Raycast(transform.position, catToPlayer.normalized, out raycastHit, catToPlayer.magnitude);
 
-            //if the ray hits anything other than the player, return false
-            if (raycastHit.collider != null && raycastHit.collider.gameObject.tag != "Player")
+            //if the ray hits anything other than the player or cat, return false
+            if (raycastHit.collider != null && raycastHit.collider.gameObject.tag != "Player" && raycastHit.collider.gameObject.tag != "Cat")
             {
                 return false;
             }
