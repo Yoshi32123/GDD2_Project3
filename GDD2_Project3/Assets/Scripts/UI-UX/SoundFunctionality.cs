@@ -7,13 +7,16 @@ public class SoundFunctionality : MonoBehaviour
 {
     public static bool SoundEnabled = true;
     public AudioSource playerSound;
+    private Toggle toggle;
 
     //sets toggle state
     void Start()
     {
-        Toggle toggle = gameObject.GetComponent<Toggle>();
+        toggle = gameObject.GetComponent<Toggle>();
         toggle.isOn = SoundEnabled;
-        playerSound.mute = !SoundEnabled;
+
+        if(playerSound != null)
+            playerSound.mute = !SoundEnabled;
     }
 
     /// <summary>
@@ -23,7 +26,18 @@ public class SoundFunctionality : MonoBehaviour
     public void OnValueChanged(bool ToggleState)
     {
         SoundEnabled = ToggleState;
-        playerSound.mute = !SoundEnabled;
+
+        if (playerSound != null)
+            playerSound.mute = !SoundEnabled;
     }
 
+    //to be called when reset to default button is pressed
+    public void ResetToDefault()
+    {
+        SoundEnabled = true;
+        toggle.isOn = SoundEnabled;
+
+        if (playerSound != null)
+            playerSound.mute = !SoundEnabled;
+    }
 }

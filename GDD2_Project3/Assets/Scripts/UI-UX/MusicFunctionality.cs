@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class MusicFunctionality : MonoBehaviour
 {
     public static bool MusicEnabled = true;
+    private Toggle toggle;
 
     //sets toggle state
     void Start()
     {
-        Toggle toggle = gameObject.GetComponent<Toggle>();
+        toggle = gameObject.GetComponent<Toggle>();
         toggle.isOn = MusicEnabled;
     }
 
@@ -21,5 +22,13 @@ public class MusicFunctionality : MonoBehaviour
     public void OnValueChanged(bool ToggleState)
     {
         MusicEnabled = ToggleState;
+    }
+
+
+    //to be called when reset to default button is pressed
+    public void ResetToDefault()
+    {
+        MusicEnabled = true;
+        toggle.isOn = MusicEnabled;
     }
 }
