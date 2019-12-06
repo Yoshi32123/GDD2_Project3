@@ -99,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
         {
             block1.GetComponent<Image>().overrideSprite = empty;
         }
-        else
+        else if (health < 0)
         {
             // go to game over scene
 
