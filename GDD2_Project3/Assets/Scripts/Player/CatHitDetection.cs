@@ -44,6 +44,6 @@ public class CatHitDetection : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeDamage();
         }
 
-        //Debug.Log("collision is working, damaged = " + damaged);
+        //Debug.Log("collision is working, collision with: " + other.gameObject.name);
     }
 }
