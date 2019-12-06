@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class SoundFunctionality : MonoBehaviour
 {
     public static bool SoundEnabled = true;
+    public AudioSource playerSound;
 
     //sets toggle state
     void Start()
     {
         Toggle toggle = gameObject.GetComponent<Toggle>();
         toggle.isOn = SoundEnabled;
+        playerSound.mute = !SoundEnabled;
     }
 
     /// <summary>
@@ -21,6 +23,7 @@ public class SoundFunctionality : MonoBehaviour
     public void OnValueChanged(bool ToggleState)
     {
         SoundEnabled = ToggleState;
+        playerSound.mute = !SoundEnabled;
     }
 
 }
