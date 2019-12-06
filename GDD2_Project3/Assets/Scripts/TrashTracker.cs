@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrashTracker : MonoBehaviour
 {
     [SerializeField] List<GameObject> trash = null;
+    [SerializeField] OverlayToggle overlayScript;
 
     // use this to determine when player wins
     public int TrashCount
@@ -38,7 +39,7 @@ public class TrashTracker : MonoBehaviour
         if (TrashCount == 0)
         {
             // win game here
-
+            overlayScript.WonGame();
         }
     }
 }

@@ -310,6 +310,7 @@ MonoBehaviour:
   - {fileID: 1859930913}
   - {fileID: 891707558}
   - {fileID: 280052254}
+  overlayScript: {fileID: 1501854039}
 --- !u!1001 &20626476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25516,6 +25517,10 @@ PrefabInstance:
       propertyPath: catHitDetector
       value: 
       objectReference: {fileID: 779207548}
+    - target: {fileID: 487482760, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: overlayScript
+      value: 
+      objectReference: {fileID: 1501854039}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &877505734 stripped

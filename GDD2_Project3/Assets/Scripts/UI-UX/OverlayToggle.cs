@@ -92,6 +92,7 @@ public class OverlayToggle : MonoBehaviour
     {
         //shows pause screen
         WinCanvas.SetActive(true);
+        Pause();
     }
 
     ///<summary>turns on lost state</summary>
@@ -99,5 +100,6 @@ public class OverlayToggle : MonoBehaviour
     {
         //shows pause screen
         LostCanvas.SetActive(true);
+        Pause();
     }
 }

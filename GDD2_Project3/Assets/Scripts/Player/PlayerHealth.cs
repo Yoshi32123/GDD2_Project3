@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public GameObject block3;
     [SerializeField] public Sprite filled;
     [SerializeField] public Sprite empty;
+    [SerializeField] OverlayToggle overlayScript;
 
     public bool JustHit
     {
@@ -102,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
         else if (health < 0)
         {
             // go to game over scene
-
+            overlayScript.LostGame();
         }
     }
 }
