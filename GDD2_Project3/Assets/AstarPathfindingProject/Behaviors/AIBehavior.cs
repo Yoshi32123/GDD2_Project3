@@ -8,12 +8,14 @@ using UnityEngine;
 public class AIBehavior : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] CharacterController cat;
     [SerializeField] float visionAngle = 1.5f; // peripheral vision
     [SerializeField] float visionRange = 15.0f; // how far the cat can see
+    private bool seesPlayer = false; // how far the cat can see
+    public bool doesCatSeePlayer() { return seesPlayer; }
 
     public AIPath aiPathScript;
     public AIDestinationSetter aiDestinationSetterScript;
-    public GameObject playerGO;
     public GameObject motherNode;
     public GameObject eyesPosition;
     private List<GameObject> listOfRooms;
@@ -67,7 +69,7 @@ public class AIBehavior : MonoBehaviour
     void Update()
     {
        
-        if (CheckPlayerVisible())
+        if (seesPlayer = CheckPlayerVisible())
         {
             if (currentBehavior != MovementState.Chasing)
                 //Changes mode to chasing player when player is seen
@@ -119,7 +121,7 @@ public class AIBehavior : MonoBehaviour
      */
     private void Chasing()
     {
-        knownPlayerPosition.position = playerGO.transform.position;
+        knownPlayerPosition.position = player.transform.position;
         aiDestinationSetterScript.target = knownPlayerPosition;
 
 
@@ -133,7 +135,7 @@ public class AIBehavior : MonoBehaviour
             aiPathScript.isStopped = true;
 
             //directon to player
-            direction = (playerGO.transform.position - transform.position);
+            direction = (player.transform.position - transform.position);
             direction.y = 0;
             direction = direction.normalized;
 
@@ -153,21 +155,21 @@ public class AIBehavior : MonoBehaviour
             horizontalPlayerPos.y = 0.0f;
             Vector3 horizontalCatPos = transform.position;
             horizontalCatPos.y = 0.0f;
-            float horizontalDistance = (horizontalPlayerPos - horizontalCatPos).magnitude;
+            float horizontalDistance = (horizontalCatPos - horizontalPlayerPos).magnitude;
 
             //Move in that direction so the cat isn't sliding sidewards slightly
             //Slows down as it gets closer to player. 
-            velocity = direction * (aiPathScript.maxSpeed / 40f) * ((horizontalDistance - 1f)/3.0f);
+            velocity = direction * (aiPathScript.maxSpeed / 26f) * ((horizontalDistance - 1f)/5.0f);
 
             //tries to jump to player if player is high
-            TryJumping(playerGO.transform.position);
+            TryJumping(player.transform.position);
 
 
             //makes it so the cat stops moving when it just barely 
             //touches player so it doesn't glitch out from the forced collisions
-            if (horizontalDistance > 1.8f)
+            if (horizontalDistance > 1.0f)
             {
-                transform.position += velocity;
+                cat.Move(velocity);
             }
         }
 

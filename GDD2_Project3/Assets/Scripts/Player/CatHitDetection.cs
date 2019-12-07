@@ -8,6 +8,7 @@ public class CatHitDetection : MonoBehaviour
     public bool damaged;
     public GameObject cameraObj;
     public GameObject player;
+    public AIBehavior catAI;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class CatHitDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "player" && !player.GetComponent<PlayerHealth>().JustHit)
+        if (other.gameObject.name == "player" && !player.GetComponent<PlayerHealth>().JustHit && catAI.doesCatSeePlayer())
         {
             damaged = true;
             player.GetComponent<PlayerHealth>().TakeDamage();
