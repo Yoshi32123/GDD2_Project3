@@ -4727,7 +4727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181145922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.74, y: 4.76, z: -2.5}
+  m_LocalPosition: {x: 0.241, y: 4.76, z: -2.063}
   m_LocalScale: {x: 0.2, y: 0.79999995, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1454258899}
@@ -105847,11 +105847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2009109832197281480, guid: dec70f3356bbdca4788551b98775e97c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1501854039}
     - target: {fileID: 6588321497784119841, guid: dec70f3356bbdca4788551b98775e97c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -105957,6 +105952,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2009109832197281480, guid: dec70f3356bbdca4788551b98775e97c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1501854039}
     - target: {fileID: 2009109830964458676, guid: dec70f3356bbdca4788551b98775e97c,
         type: 3}
       propertyPath: playerSound
