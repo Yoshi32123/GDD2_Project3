@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
 
-public class PlayerStamina : MonoBehaviour
+public class PlayerStamina2 : MonoBehaviour
 {
-    private int stamina;
-    private int time;
-    private int previousTime;
+    private float stamina;
+    private float time;
+    private float previousTime;
     private float actualTime;
 
     [Header("UI References")]
@@ -19,12 +19,17 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField] public GameObject block5;
     [SerializeField] public Sprite filled;
     [SerializeField] public Sprite empty;
+    [SerializeField] public GameObject StaminaMeter;
+    private Slider staminaValue;
+
+    [SerializeField] private float displayStamina;
 
     // Start is called before the first frame update
     void Start()
     {
         stamina = 5;
         previousTime = 0;
+        staminaValue = StaminaMeter.GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -32,10 +37,10 @@ public class PlayerStamina : MonoBehaviour
     {
         actualTime += Time.deltaTime;
         UpdateStamina();
-        UpdateStaminaUI();
+        staminaValue.value = stamina;
 
         // if stamina is out, turn off walk
-        if (stamina == 0)
+        if (stamina <= .1f)
         {
             gameObject.GetComponent<FirstPersonController>().m_RunSpeed = 1.75f;
         }
@@ -43,6 +48,7 @@ public class PlayerStamina : MonoBehaviour
         {
             gameObject.GetComponent<FirstPersonController>().m_RunSpeed = 3.5f;
         }
+        displayStamina = stamina;
         //Debug.Log("Current stamina: " + stamina);
     }
 
@@ -51,14 +57,14 @@ public class PlayerStamina : MonoBehaviour
     /// </summary>
     public void UpdateStamina()
     {
-        time = (int) actualTime;
+        time = actualTime;
         float diff = time - previousTime;
         if (time != previousTime)
         {
             if (gameObject.GetComponent<FirstPersonController>().m_IsWalking && stamina < 5)
-                stamina++;
+                stamina += .05f;
             else if (!gameObject.GetComponent<FirstPersonController>().m_IsWalking && stamina > 0)
-                stamina--;
+                stamina -= .05f;
         }
 
         previousTime = time;
@@ -69,6 +75,7 @@ public class PlayerStamina : MonoBehaviour
     /// </summary>
     public void UpdateStaminaUI()
     {
+
         if (stamina == 5)
         {
             block1.GetComponent<Image>().overrideSprite = filled;
