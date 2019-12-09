@@ -1,9 +1,7 @@
-﻿
-using Pathfinding;
+﻿using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class AIBehavior : MonoBehaviour
 {
@@ -38,7 +36,7 @@ public class AIBehavior : MonoBehaviour
 
     private Transform knownPlayerPosition;
 
-
+    //public CatCharacter 
 
     // Start is called before the first frame update
     void Start()
@@ -189,6 +187,10 @@ public class AIBehavior : MonoBehaviour
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Searching;
         aiPathScript.maxSpeed = 2;
+
+        // Cross reference for animation walking
+
+
         waitTime = 0.5f;
         searchTime = 20.0f;
 
