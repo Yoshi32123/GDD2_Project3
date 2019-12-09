@@ -85758,13 +85758,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705588053}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.31, y: -3.26, z: 0.37}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 2.472, y: -3.26, z: 0.009}
+  m_LocalScale: {x: 0.82845277, y: 2.0005, z: 1}
   m_Children: []
   m_Father: {fileID: 911157214}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90}
 --- !u!23 &1705588055
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85782,7 +85782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74569d94e971a10438744ed53eae302d, type: 2}
+  - {fileID: 2100000, guid: c9c83e3bca3fb224ebfb77134196ade3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105847,6 +105847,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2009109832197281480, guid: dec70f3356bbdca4788551b98775e97c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1501854039}
     - target: {fileID: 6588321497784119841, guid: dec70f3356bbdca4788551b98775e97c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -105952,11 +105957,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2009109832197281480, guid: dec70f3356bbdca4788551b98775e97c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1501854039}
     - target: {fileID: 2009109830964458676, guid: dec70f3356bbdca4788551b98775e97c,
         type: 3}
       propertyPath: playerSound
