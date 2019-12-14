@@ -109,7 +109,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
-        aiPathScript.maxSpeed = 3.0f;
+        aiPathScript.maxSpeed = 1.5f;
         Debug.Log("Chasing");
     }
 
@@ -186,7 +186,7 @@ public class AIBehavior : MonoBehaviour
     {
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Searching;
-        aiPathScript.maxSpeed = 2;
+        aiPathScript.maxSpeed = 0.5f;
 
         // Cross reference for animation walking
 

@@ -106143,7 +106143,12 @@ PrefabInstance:
     - target: {fileID: 3628844209312817936, guid: 3156b5550cf152846b4b0b9e06e344bb,
         type: 3}
       propertyPath: forwardSpeed
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628844209312817936, guid: 3156b5550cf152846b4b0b9e06e344bb,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8182212971005980675, guid: 3156b5550cf152846b4b0b9e06e344bb,
         type: 3}
