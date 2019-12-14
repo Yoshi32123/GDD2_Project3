@@ -48,9 +48,9 @@ public class PlayerStamina2 : MonoBehaviour
     {
         // have preset stamina depletion and regen rates
         if (gameObject.GetComponent<FirstPersonController>().m_IsWalking && stamina < 5)
-            stamina += .05f;
+            stamina += .04f;
         else if (!gameObject.GetComponent<FirstPersonController>().m_IsWalking && stamina > 0)
-            stamina -= .075f;
+            stamina -= .025f;
     }
 
     /// <summary>
