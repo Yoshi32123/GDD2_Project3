@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924709129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2754, z: 0.2405}
+  m_LocalRotation: {x: 0.26568443, y: -0, z: -0, w: 0.9640601}
+  m_LocalPosition: {x: 0, y: 0.46, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3628844209323653050}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.815, y: 0, z: 0}
 --- !u!1 &1695090164
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1695090166}
   m_Layer: 0
   m_Name: FloorDetector
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,8 +325,8 @@ MonoBehaviour:
   groundCheckOffset: 0.01
   isGrounded: 1
   jumpSpeed: 5
-  forwardSpeed: 0
-  turnSpeed: 0
+  forwardSpeed: 0.5
+  turnSpeed: 0.6
   walkMode: 1
   jumpStartTime: 0
   maxWalkSpeed: 1
@@ -355,11 +355,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  visionAngle: 15
+  cat: {fileID: 1890372580}
+  visionAngle: 2.5
   visionRange: 15
   aiPathScript: {fileID: 1890372576}
   aiDestinationSetterScript: {fileID: 1890372577}
-  playerGO: {fileID: 0}
   motherNode: {fileID: 0}
   eyesPosition: {fileID: 924709129}
   floorDetected: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 3
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 0.5
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 1
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 3628844209310348892}
   m_Layer: 0
   m_Name: CatMiddlePoly
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2119,7 +2119,7 @@ GameObject:
   - component: {fileID: 3628844209323671582}
   m_Layer: 0
   m_Name: Root
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2795,9 +2795,10 @@ GameObject:
   - component: {fileID: 8182212971005980675}
   - component: {fileID: 5729646772264706216}
   - component: {fileID: 8981027125489587369}
+  - component: {fileID: 779207552}
   m_Layer: 0
   m_Name: HitDetector
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2809,8 +2810,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8378626060091485743}
-  m_LocalRotation: {x: -0, y: 0.9998525, z: -0, w: -0.01717698}
-  m_LocalPosition: {x: 0.49531734, y: 0.12503147, z: 0.09517313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1949155, y: 1.1949155, z: 1.1949155}
   m_Children: []
   m_Father: {fileID: 3628844209323653050}
@@ -2827,8 +2828,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50258, y: 0.2752395, z: 0.38387433}
-  m_Center: {x: -0.0077663413, y: 0.12612393, z: 0.41723067}
+  m_Size: {x: 0.2100421, y: 0.29991108, z: 0.2776921}
+  m_Center: {x: 0.0025285447, y: 0.13845971, z: 0.3641394}
 --- !u!114 &8981027125489587369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2844,3 +2845,100 @@ MonoBehaviour:
   damaged: 0
   cameraObj: {fileID: 0}
   player: {fileID: 0}
+  catAI: {fileID: 1890372575}
+--- !u!82 &779207552
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378626060091485743}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4f13c849189013e43a54600ebcfca399, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.499
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
