@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
 {
-    [SerializeField] List<GameObject> trash = null;
+    List<GameObject> trash = new List<GameObject>();
     [SerializeField] List<GameObject> pref_trash;
     [SerializeField] int numTrash = 5;
     GameObject[] spawnpoints;
+
+    [SerializeField] OverlayToggle overlayScript;
 
     // use this to determine when player wins
     public int TrashCount
@@ -38,6 +40,7 @@ public class TrashSpawner : MonoBehaviour
     void Update()
     {
         CheckEmpty();
+        Debug.Log(spawnpoints);
     }
 
     /// <summary>
@@ -57,7 +60,7 @@ public class TrashSpawner : MonoBehaviour
         if (TrashCount == 0)
         {
             // win game here
-
+            overlayScript.WonGame();
         }
     }
 }
