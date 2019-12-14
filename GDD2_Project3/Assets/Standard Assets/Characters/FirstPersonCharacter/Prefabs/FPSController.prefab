@@ -208,7 +208,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
@@ -355,6 +355,7 @@ MonoBehaviour:
   block3: {fileID: 0}
   filled: {fileID: 21300000, guid: 51972e90ee9a22c4895b05472ddcd15f, type: 3}
   empty: {fileID: 21300000, guid: defffe13294ceba439429495c05a1aa0, type: 3}
+  overlayScript: {fileID: 0}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
