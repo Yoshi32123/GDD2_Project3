@@ -314,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -170}
+  m_AnchoredPosition: {x: 0, y: -190}
   m_SizeDelta: {x: 887.1, y: 296.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &190035962
@@ -337,9 +337,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Text fonts:
-
-'
+  m_text: 'Text fonts:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afed8537208c6a94a890ece5cafe73b0, type: 2}
   m_sharedMaterial: {fileID: 1633904330425064748, guid: afed8537208c6a94a890ece5cafe73b0,
@@ -409,9 +407,9 @@ MonoBehaviour:
   m_margin: {x: -0.7709961, y: -0.622345, z: 0.28546143, w: 0.5373535}
   m_textInfo:
     textComponent: {fileID: 190035962}
-    characterCount: 12
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 2
+    spaceCount: 1
     wordCount: 2
     linkCount: 0
     lineCount: 1
@@ -424,7 +422,7 @@ MonoBehaviour:
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 1022281876}
-  - {fileID: 0}
+  - {fileID: 572634006}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1067,7 +1065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 190}
   m_SizeDelta: {x: 887.1, y: 296.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957806627
@@ -1175,7 +1173,7 @@ MonoBehaviour:
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 1720535413}
-  - {fileID: 0}
+  - {fileID: 1005126773}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -2072,8 +2070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 887.1, y: 296.4}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 887.1, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923960471
 MonoBehaviour:
@@ -2095,7 +2093,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Sources/Assets:'
+  m_text: 'Sources/Assets:
+
+
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afed8537208c6a94a890ece5cafe73b0, type: 2}
   m_sharedMaterial: {fileID: 1633904330425064748, guid: afed8537208c6a94a890ece5cafe73b0,
@@ -2165,12 +2168,12 @@ MonoBehaviour:
   m_margin: {x: -0.7709961, y: -0.622345, z: 0.28546143, w: 0.5373535}
   m_textInfo:
     textComponent: {fileID: 1923960471}
-    characterCount: 15
+    characterCount: 19
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 4
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2180,7 +2183,7 @@ MonoBehaviour:
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 807559366}
-  - {fileID: 0}
+  - {fileID: 823963755}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -2336,11 +2339,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "Loading Screen code: https://blog.teamtreehouse.com/make-loading-screen-unity\nCat
-    Claw Marks image :https://image.freepik.com/free-vector/cat-scratches-transparent_1284-8133.jpg\nCat
-    Silhouette Image: https://www.rubberstamps.com/products/theme-anml-57?variant=28538234110000\nBalloon
+    Claw Marks image:\n :https://image.freepik.com/free-vector/cat-scratches-transparent_1284-8133.jpg\nCat
+    Silhouette Image:\nhttps://www.rubberstamps.com/products/theme-anml-57?variant=28538234110000\nBalloon
     Pop: https://freesound.org/people/Laumark/sounds/415125/ \r\nHolding Trash: https://freesound.org/people/Jamitch2/sounds/344719/\r\nMusic
     during game: https://www.youtube.com/watch?v=V5cpUa8zXIc \r\nCat attack meow:
-    https://freesound.org/people/timtube/sounds/61259/"
+    https://freesound.org/people/timtube/sounds/61259/\nTitle Music: https://www.zapsplat.com"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afed8537208c6a94a890ece5cafe73b0, type: 2}
   m_sharedMaterial: {fileID: 1633904330425064748, guid: afed8537208c6a94a890ece5cafe73b0,
@@ -2410,12 +2413,12 @@ MonoBehaviour:
   m_margin: {x: -0.7709961, y: -0.3428955, z: 0.28546143, w: 0.5373535}
   m_textInfo:
     textComponent: {fileID: 2103585671}
-    characterCount: 543
+    characterCount: 583
     spriteCount: 0
-    spaceCount: 28
-    wordCount: 69
+    spaceCount: 32
+    wordCount: 75
     linkCount: 0
-    lineCount: 7
+    lineCount: 10
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
