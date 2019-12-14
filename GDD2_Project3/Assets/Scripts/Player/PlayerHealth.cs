@@ -13,7 +13,9 @@ public class PlayerHealth : MonoBehaviour
     private int timeTracker;
     private int health;
     private bool justHit = false;
-    public GameObject catHitDetector;
+
+    [Header("Cat References")]
+    [SerializeField] public GameObject catHitDetector;
 
     [Header("UI References")]
     [SerializeField] public GameObject block1;
@@ -60,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
             justHit = true;
             health--;
             gameObject.GetComponent<PlayerStamina>().ResetStamina();
+            catHitDetector.GetComponent<AudioSource>().Play();
         }
     }
 

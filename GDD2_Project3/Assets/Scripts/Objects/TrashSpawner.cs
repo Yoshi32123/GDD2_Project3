@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
 {
-    List<GameObject> trash = new List<GameObject>();
+    [SerializeField] List<GameObject> trash = new List<GameObject>();
     [SerializeField] List<GameObject> pref_trash;
     [SerializeField] int numTrash = 5;
     GameObject[] spawnpoints;
