@@ -20,11 +20,24 @@ public class CatHitDetection : MonoBehaviour
     void Update()
     {
         CheckCatCollision();
+        CheckIfPlayerIsOutOfBounds();
 
         if (damaged == true)
             cameraObj.GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = true;
         else
             cameraObj.GetComponent<PostProcessingBehaviour>().profile.vignette.enabled = false;
+    }
+
+    /// <summary>
+    /// Damage player when out of bounds
+    /// </summary>
+    public void CheckIfPlayerIsOutOfBounds()
+    {
+        if (player.transform.position.y < -1)
+        {
+            damaged = true;
+            player.GetComponent<PlayerHealth>().TakeDamage();
+        }
     }
 
     /// <summary>
