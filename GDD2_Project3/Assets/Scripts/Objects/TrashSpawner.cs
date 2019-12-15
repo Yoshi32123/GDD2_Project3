@@ -6,6 +6,7 @@ public class TrashSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> trash = new List<GameObject>();
     [SerializeField] List<GameObject> pref_trash;
+    [SerializeField] SoundFunctionality soundScript;
     [SerializeField] int numTrash = 5;
     GameObject[] spawnpoints;
 
@@ -33,6 +34,7 @@ public class TrashSpawner : MonoBehaviour
             usedSpawns.Add(spawnpoint);
 
             trash.Add(Instantiate(pref_trash[trashType], spawnpoints[spawnpoint].transform));
+            soundScript.audioSources.Add(trash[i].GetComponent<AudioSource>());
         }
     }
 

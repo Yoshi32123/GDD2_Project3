@@ -19,7 +19,9 @@ public class Pickupable : MonoBehaviour
     {
         lockRotation = false;
         pickupZone = GameObject.FindGameObjectWithTag("PickupSpot");
-        theDest = pickupZone.transform;
+        
+        if(pickupZone != null)
+            theDest = pickupZone.transform;
     }
 
     void Update()
@@ -125,6 +127,11 @@ public class Pickupable : MonoBehaviour
     /// </summary>
     private void HandleSound()
     {
+        if(GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
+
         if (startCarry && lockRotation && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerIsMoving>().Moving)
         {
             sound.Play();

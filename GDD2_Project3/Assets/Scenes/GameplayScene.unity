@@ -462,6 +462,7 @@ MonoBehaviour:
   pref_trash:
   - {fileID: 5458657446534310478, guid: baeb0bb88954c4849bc5b17cc734a847, type: 3}
   - {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2, type: 3}
+  soundScript: {fileID: 836213592}
   numTrash: 5
   overlayScript: {fileID: 1501854039}
 --- !u!1001 &20626476
@@ -24840,6 +24841,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 831843365}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &836213592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2009109830964458676, guid: dec70f3356bbdca4788551b98775e97c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689802550676466123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d57562bdaeb584e933a7fdffe37b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &841788029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8626751840527039810, guid: efd60aab641c34f4ca5606220c857fa7,
@@ -103578,7 +103591,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2045033218}
   - component: {fileID: 2045033217}
-  - component: {fileID: 2045033219}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -103696,19 +103708,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2045033219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045033216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf0ff0b2f130af4694e0a9a9705a9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AS: {fileID: 0}
 --- !u!1 &2048354659
 GameObject:
   m_ObjectHideFlags: 0
