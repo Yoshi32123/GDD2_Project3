@@ -25690,10 +25690,6 @@ PrefabInstance:
       propertyPath: overlayScript
       value: 
       objectReference: {fileID: 1501854039}
-    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 877505744, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: StaminaMeter
       value: 
