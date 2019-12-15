@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MusicFunctionality : MonoBehaviour
 {
     public static bool MusicEnabled = true;
+    public AudioSource[] audioSources;
     private Toggle toggle;
 
     //sets toggle state
@@ -13,6 +14,11 @@ public class MusicFunctionality : MonoBehaviour
     {
         toggle = gameObject.GetComponent<Toggle>();
         toggle.isOn = MusicEnabled;
+
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !MusicEnabled;
+        }
     }
 
     /// <summary>
@@ -22,6 +28,11 @@ public class MusicFunctionality : MonoBehaviour
     public void OnValueChanged(bool ToggleState)
     {
         MusicEnabled = ToggleState;
+
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !MusicEnabled;
+        }
     }
 
 
@@ -30,5 +41,10 @@ public class MusicFunctionality : MonoBehaviour
     {
         MusicEnabled = true;
         toggle.isOn = MusicEnabled;
+
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !MusicEnabled;
+        }
     }
 }

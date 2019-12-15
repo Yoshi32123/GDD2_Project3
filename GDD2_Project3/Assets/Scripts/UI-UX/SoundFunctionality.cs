@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SoundFunctionality : MonoBehaviour
 {
     public static bool SoundEnabled = true;
-    public AudioSource playerSound;
+    public AudioSource[] audioSources;
     private Toggle toggle;
 
     //sets toggle state
@@ -15,8 +15,10 @@ public class SoundFunctionality : MonoBehaviour
         toggle = gameObject.GetComponent<Toggle>();
         toggle.isOn = SoundEnabled;
 
-        if(playerSound != null)
-            playerSound.mute = !SoundEnabled;
+        for(int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !SoundEnabled;
+        }
     }
 
     /// <summary>
@@ -27,8 +29,10 @@ public class SoundFunctionality : MonoBehaviour
     {
         SoundEnabled = ToggleState;
 
-        if (playerSound != null)
-            playerSound.mute = !SoundEnabled;
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !SoundEnabled;
+        }
     }
 
     //to be called when reset to default button is pressed
@@ -37,7 +41,9 @@ public class SoundFunctionality : MonoBehaviour
         SoundEnabled = true;
         toggle.isOn = SoundEnabled;
 
-        if (playerSound != null)
-            playerSound.mute = !SoundEnabled;
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].mute = !SoundEnabled;
+        }
     }
 }
