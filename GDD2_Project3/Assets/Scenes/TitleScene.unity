@@ -561,6 +561,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizzabox
       objectReference: {fileID: 0}
+    - target: {fileID: 2861939454912202852, guid: 0f03e302789b4bc46a831c6e30f508e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1291687695535405687, guid: 0f03e302789b4bc46a831c6e30f508e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1089,6 +1094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9074859aed365f046b94828d080756b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9074859aed365f046b94828d080756b5,
         type: 3}
@@ -2198,6 +2208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrashBin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625576223130955235, guid: 9e4146886155b7747a93d4e7d015d036,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625576223130955232, guid: 9e4146886155b7747a93d4e7d015d036,
         type: 3}
