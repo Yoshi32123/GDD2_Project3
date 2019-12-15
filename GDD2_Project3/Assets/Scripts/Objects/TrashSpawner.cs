@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrashSpawner : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TrashSpawner : MonoBehaviour
     GameObject[] spawnpoints;
 
     [SerializeField] OverlayToggle overlayScript;
+    Text display;
 
     // use this to determine when player wins
     public int TrashCount
@@ -21,6 +23,7 @@ public class TrashSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        display = GameObject.Find("TrashDisplay").GetComponent<Text>();
         spawnpoints = GameObject.FindGameObjectsWithTag("TrashSpawnPoint");
 
         List<int> usedSpawns = new List<int>();
@@ -41,6 +44,7 @@ public class TrashSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        display.text = "Trash remaining: " + TrashCount;
         CheckEmpty();
         Debug.Log(spawnpoints);
     }
