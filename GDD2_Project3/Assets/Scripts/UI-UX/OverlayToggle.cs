@@ -21,6 +21,10 @@ public class OverlayToggle : MonoBehaviour
         {
             Unpause();
         }
+        else
+        {
+            ResetTimeScale();
+        }
     }
 
     void Update()
