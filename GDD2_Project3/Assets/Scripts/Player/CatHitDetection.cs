@@ -33,7 +33,7 @@ public class CatHitDetection : MonoBehaviour
     /// </summary>
     public void CheckIfPlayerIsOutOfBounds()
     {
-        if (player.transform.position.y < -1)
+        if (player.transform.position.y < -8)
         {
             damaged = true;
             player.GetComponent<PlayerHealth>().TakeDamage();
