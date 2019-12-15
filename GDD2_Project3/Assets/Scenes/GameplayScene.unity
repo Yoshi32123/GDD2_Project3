@@ -25670,30 +25670,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: block1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: block2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: block3
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: block4
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: block5
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323858513, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 487482760, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: catHitDetector
       value: 
@@ -25714,16 +25690,14 @@ PrefabInstance:
       propertyPath: overlayScript
       value: 
       objectReference: {fileID: 1501854039}
-    - target: {fileID: 487482760, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: filled
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877505744, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: StaminaMeter
       value: 
-      objectReference: {fileID: 21300000, guid: 8773cde40c6671849a79f6cbb881d4c4,
-        type: 3}
-    - target: {fileID: 487482760, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: empty
-      value: 
-      objectReference: {fileID: 21300000, guid: a8755f72c1de8234fafdf453215bc590,
-        type: 3}
+      objectReference: {fileID: 825525177}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &877505734 stripped
@@ -25738,20 +25712,6 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 877505733}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &877505744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877505734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d04edcc90e969d498fb53240f7880da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StaminaMeter: {fileID: 825525177}
-  displayStamina: 0
 --- !u!1 &886943936
 GameObject:
   m_ObjectHideFlags: 0
