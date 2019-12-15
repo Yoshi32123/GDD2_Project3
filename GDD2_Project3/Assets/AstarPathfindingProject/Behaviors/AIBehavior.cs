@@ -110,7 +110,6 @@ public class AIBehavior : MonoBehaviour
         aiPathScript.isStopped = false;
         currentBehavior = MovementState.Chasing;
         aiPathScript.maxSpeed = 1.5f;
-        Debug.Log("Chasing");
     }
 
     /*
@@ -194,7 +193,6 @@ public class AIBehavior : MonoBehaviour
         waitTime = 0.5f;
         searchTime = 20.0f;
 
-        Debug.Log("Searching");
     }
 
     /*
@@ -245,7 +243,6 @@ public class AIBehavior : MonoBehaviour
         currentBehavior = MovementState.Wandering;
         aiPathScript.maxSpeed = 1;
         waitTime = 2.0f;
-        Debug.Log("Wander");
     }
 
     /*
@@ -336,7 +333,6 @@ public class AIBehavior : MonoBehaviour
             }
             else
             {
-                Debug.Log("Whaddup, son?");
                 return true;
             }
         }
